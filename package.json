@@ -1,0 +1,63 @@
+{
+  "name": "absensi-standalone",
+  "version": "1.0.0",
+  "description": "Employee attendance management system with GPS tracking",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio",
+    "db:seed": "tsx prisma/seed.ts",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "attendance",
+    "gps",
+    "tracking",
+    "employee",
+    "management"
+  ],
+  "author": "Development Team",
+  "license": "MIT",
+  "dependencies": {
+    "@hookform/resolvers": "^3.3.2",
+    "@prisma/client": "^5.6.0",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20.9.0",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "bcryptjs": "^2.4.3",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "date-fns": "^2.30.0",
+    "mysql2": "^3.6.5",
+    "next": "^14.0.3",
+    "next-auth": "^5.0.0-beta.4",
+    "prisma": "^5.6.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.47.0",
+    "tailwind-merge": "^3.3.1",
+    "typescript": "^5.2.2",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "eslint": "^8.53.0",
+    "eslint-config-next": "^14.0.3",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.13",
+    "tsx": "^4.20.5"
+  }
+}
