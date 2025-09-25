@@ -1,19 +1,23 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import Navigation from '@/components/layout/navigation';
+import AuthSessionProvider from '@/components/providers/session-provider';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  fallback: ['system-ui', 'arial']
+});
 
 export const metadata: Metadata = {
   title: 'Absensi Standalone',
   description: 'Employee attendance management system with GPS tracking',
   manifest: '/manifest.json',
+};
+
+export const viewport = {
   themeColor: '#000000',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
 };
 
 export default function RootLayout({
@@ -30,9 +34,14 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={inter.className}>
-        <div id="root">
-          {children}
-        </div>
+        <AuthSessionProvider>
+          <div id="root">
+            <Navigation />
+            <main className="min-h-screen bg-gray-50">
+              {children}
+            </main>
+          </div>
+        </AuthSessionProvider>
       </body>
     </html>
   );

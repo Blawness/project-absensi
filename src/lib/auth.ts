@@ -74,12 +74,12 @@ export const authOptions: NextAuthOptions = {
           return {
             id: user.id,
             email: user.email,
-            name: user.name,
+            name: user.name || '',
             role: user.role,
-            department: user.department,
-            position: user.position,
-            avatarUrl: user.avatarUrl,
-          };
+            department: user.department || undefined,
+            position: user.position || undefined,
+            avatarUrl: user.avatarUrl || undefined,
+          } as any;
         } catch (error) {
           console.error('Authentication error:', error);
           throw error;
@@ -97,23 +97,33 @@ export const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async jwt({ token, user }) {
-      if (user) {
-        token.role = user.role;
-        token.department = user.department;
-        token.position = user.position;
-        token.avatarUrl = user.avatarUrl;
+      try {
+        if (user) {
+          token.role = user.role;
+          token.department = user.department;
+          token.position = user.position;
+          token.avatarUrl = user.avatarUrl;
+        }
+        return token;
+      } catch (error) {
+        console.error('JWT callback error:', error);
+        return token;
       }
-      return token;
     },
     async session({ session, token }) {
-      if (session.user) {
-        session.user.id = token.sub!;
-        session.user.role = token.role as UserRole;
-        session.user.department = token.department as string;
-        session.user.position = token.position as string;
-        session.user.avatarUrl = token.avatarUrl as string;
+      try {
+        if (session?.user && token && token.sub) {
+          session.user.id = token.sub;
+          session.user.role = token.role as UserRole;
+          session.user.department = token.department as string;
+          session.user.position = token.position as string;
+          session.user.avatarUrl = token.avatarUrl as string;
+        }
+        return session;
+      } catch (error) {
+        console.error('Session callback error:', error);
+        return session;
       }
-      return session;
     },
   },
   events: {

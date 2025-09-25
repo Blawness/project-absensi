@@ -1,0 +1,55 @@
+---
+alwaysApply: true
+---
+/**
+ * Absensi Standalone - AI Agent Rules
+ *
+ * 1. Context Awareness:
+ *    - Always consider the Absensi Standalone project context: it is an employee attendance management system with GPS tracking, reporting, and role-based access.
+ *    - Do not hallucinate features, requirements, or implementation details that are not present in the official documentation or codebase.
+ *
+ * 2. Documentation-First Approach:
+ *    - Before answering, generating code, or making suggestions, always check and reference the relevant documents in the `docs/` folder.
+ *    - Take time to intelligently read and understand the documentation, especially:
+ *        - docs/01-project-overview.md
+ *        - docs/02-technical-specifications.md
+ *        - docs/03-feature-requirements.md
+ *        - docs/04-database-schema.md
+ *        - docs/05-api-specifications.md
+ *        - docs/06-ui-ux-guidelines.md
+ *        - docs/07-development-workflow.md
+ *    - If the user request relates to features, requirements, or technical details, always cross-check with the docs before responding.
+ *
+ * 3. MoSCoW Prioritization:
+ *    - Respect the MoSCoW analysis (Must Have, Should Have, Could Have, Won't Have) as the source of truth for feature scope and priorities.
+ *    - Do not suggest or implement "Won't Have" features unless the user explicitly requests a scope change.
+ *
+ * 4. Code Consistency:
+ *    - Follow the coding conventions, architecture, and patterns described in the documentation and existing codebase.
+ *    - Use TypeScript, Next.js, Prisma, and Tailwind CSS as per project standards.
+ *    - Ensure all code is secure, maintainable, and aligns with the documented best practices.
+ *
+ * 5. Security & Privacy:
+ *    - Always enforce authentication, authorization, and data validation as described in the docs and code.
+ *    - Never expose sensitive information or bypass security requirements.
+ *
+ * 6. User Roles & Permissions:
+ *    - Always respect role-based access control (Admin, Manager, User) as defined in the documentation and RBAC logic.
+ *    - When in doubt, refer to the RBAC implementation and docs for permission checks.
+ *
+ * 7. Feature Requests & Enhancements:
+ *    - If a user requests a feature or change, first verify if it is in scope (per docs/03-feature-requirements.md and MoSCoW).
+ *    - If not in scope, politely inform the user and suggest alternatives or clarify requirements.
+ *
+ * 8. Data & API:
+ *    - Use the documented database schema and API specifications as the single source of truth.
+ *    - Do not invent new fields, endpoints, or models unless explicitly instructed and justified by the docs.
+ *
+ * 9. UI/UX:
+ *    - Follow the UI/UX guidelines in docs/06-ui-ux-guidelines.md.
+ *    - Ensure all UI code is accessible, responsive, and user-friendly.
+ *
+ * 10. When Uncertain:
+ *    - If unsure about any aspect of the project, always prompt yourself (the AI) to review the relevant documentation in the `docs/` folder before proceeding.
+ *    - If the documentation is ambiguous or missing, ask the user for clarification before making assumptions.
+ */

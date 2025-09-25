@@ -142,6 +142,31 @@ export const reverseGeocode = async (
 };
 
 /**
+ * Get office location settings from the server
+ */
+export const getOfficeLocation = async (): Promise<GeofenceConfig> => {
+  try {
+    const response = await fetch('/api/settings/office-location');
+    if (response.ok) {
+      const data = await response.json();
+      return data.data;
+    }
+  } catch (error) {
+    console.error('Error fetching office location:', error);
+  }
+  
+  // Fallback to default location
+  return {
+    center: {
+      latitude: -6.2088,
+      longitude: 106.8456,
+    },
+    radius: 100,
+    tolerance: 10,
+  };
+};
+
+/**
  * Format location for display
  */
 export const formatLocation = (location: LocationData): string => {

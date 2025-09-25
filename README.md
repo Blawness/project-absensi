@@ -52,7 +52,7 @@ Absensi Standalone adalah aplikasi manajemen absensi karyawan yang modern, aman,
 - **Runtime**: Node.js
 - **Framework**: Next.js API Routes
 - **Database**: MySQL with Prisma ORM
-- **Authentication**: NextAuth.js
+- **Authentication**: NextAuth.js v4 (Stable)
 - **Password Hashing**: bcrypt
 
 ### Development Tools
@@ -137,6 +137,7 @@ project-absensi/
 
 5. **Access the application**
    - Open [http://localhost:3000](http://localhost:3000)
+   - Development server runs with Next.js 15 + Turbo bundler
    - Use demo accounts to test:
      - **Admin**: admin@company.com / admin123
      - **Manager**: manager@company.com / manager123
@@ -184,6 +185,26 @@ project-absensi/
 - **GPS Integration**: Native geolocation API
 - **Touch Optimization**: Mobile-optimized interactions
 
+## ⚡ Next.js 15 Features
+
+### Turbo Bundler
+- **Faster Builds**: Up to 700x faster builds than Webpack
+- **Hot Module Replacement**: Instant updates during development
+- **Memory Efficient**: Lower memory usage and faster startup
+- **Modern JavaScript**: Native support for latest JS features
+
+### React 19 Integration
+- **Concurrent Rendering**: Improved performance with concurrent features
+- **Automatic Batching**: Better state updates and rendering
+- **Strict Mode**: Enhanced debugging and development experience
+- **Server Components**: Enhanced server-side rendering capabilities
+
+### Performance Improvements
+- **Better Caching**: Improved cache invalidation strategies
+- **Optimized Images**: Enhanced image optimization with new formats
+- **Streaming**: Better streaming support for dynamic content
+- **Code Splitting**: Automatic and intelligent code splitting
+
 ## 🧪 Testing
 
 ```bash
@@ -216,12 +237,13 @@ npm run db:seed      # Seed database
 - [x] Basic UI components
 - [x] GPS location services
 
-### Phase 2: Core Features (Weeks 5-8) 🔄
-- [ ] Check-in/out functionality
-- [ ] User dashboard
-- [ ] Attendance reports
-- [ ] Data export features
-- [ ] Admin panel
+### Phase 2: Core Features (Weeks 5-8) ✅
+- ✅ Check-in/out functionality with GPS
+- ✅ User dashboard with role-based access
+- ✅ Attendance reports system
+- ✅ Data export features
+- ✅ Admin panel with RBAC
+- ✅ Role-based access control (RBAC)
 
 ### Phase 3: Advanced Features (Weeks 9-12) 📋
 - [ ] Advanced analytics
