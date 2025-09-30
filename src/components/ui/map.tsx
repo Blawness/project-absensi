@@ -29,7 +29,7 @@ export function Map({
   children,
 }: MapProps) {
   return (
-    <div className={`relative ${className}`} style={{ height }}>
+    <div className={`relative ${className} rounded-lg overflow-hidden border border-border`} style={{ height }}>
       <MapContainer
         center={center}
         zoom={zoom}

@@ -176,32 +176,32 @@ export default function CheckInCheckOut() {
       </CardHeader>
       <CardContent className="space-y-4">
         {error && (
-          <div className="p-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md">
+          <div className="p-3 text-sm text-destructive bg-destructive/10 border border-destructive/20 rounded-md">
             {error}
           </div>
         )}
 
         {/* Current Status */}
         {todayStatus && (
-          <div className="p-4 bg-gray-50 rounded-lg">
-            <h3 className="font-semibold mb-2">Today's Status</h3>
+          <div className="p-4 bg-muted/50 rounded-lg">
+            <h3 className="font-semibold mb-2 text-foreground">Today's Status</h3>
             <div className="space-y-1 text-sm">
               <div className="flex justify-between">
-                <span>Check In:</span>
-                <span className={todayStatus.checkedIn ? 'text-green-600' : 'text-gray-500'}>
+                <span className="text-muted-foreground">Check In:</span>
+                <span className={todayStatus.checkedIn ? 'text-green-600' : 'text-muted-foreground'}>
                   {todayStatus.checkedIn ? todayStatus.checkInTime || 'Done' : 'Not yet'}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span>Check Out:</span>
-                <span className={todayStatus.checkedOut ? 'text-green-600' : 'text-gray-500'}>
+                <span className="text-muted-foreground">Check Out:</span>
+                <span className={todayStatus.checkedOut ? 'text-green-600' : 'text-muted-foreground'}>
                   {todayStatus.checkedOut ? todayStatus.checkOutTime || 'Done' : 'Not yet'}
                 </span>
               </div>
               {todayStatus.workHours && (
                 <div className="flex justify-between">
-                  <span>Work Hours:</span>
-                  <span className="font-medium">{todayStatus.workHours.toFixed(1)}h</span>
+                  <span className="text-muted-foreground">Work Hours:</span>
+                  <span className="font-medium text-foreground">{todayStatus.workHours.toFixed(1)}h</span>
                 </div>
               )}
             </div>
@@ -210,9 +210,9 @@ export default function CheckInCheckOut() {
 
         {/* Location Info */}
         {currentLocation && (
-          <div className="p-4 bg-blue-50 rounded-lg">
-            <h3 className="font-semibold mb-2">Current Location</h3>
-            <p className="text-sm text-blue-800">{formatLocation(currentLocation)}</p>
+          <div className="p-4 bg-primary/10 rounded-lg">
+            <h3 className="font-semibold mb-2 text-foreground">Current Location</h3>
+            <p className="text-sm text-primary">{formatLocation(currentLocation)}</p>
           </div>
         )}
 

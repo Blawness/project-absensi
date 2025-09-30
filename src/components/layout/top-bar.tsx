@@ -23,7 +23,7 @@ export function TopBar() {
             <Input
               type="text"
               placeholder="Search anything"
-              className="w-full bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:bg-gray-700 focus:border-purple-500"
+              className="w-full"
             />
             <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
               <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -36,7 +36,7 @@ export function TopBar() {
         {/* Right side - User profile */}
         <div className="flex items-center space-x-4">
           {/* Notifications */}
-          <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white hover:bg-gray-800">
+          <Button variant="ghost" size="sm">
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-5-5h-5l-5 5h5v-5h5v5z" />
             </svg>

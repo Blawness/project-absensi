@@ -139,11 +139,12 @@ export function AttendanceMap({
           </div>
 
           {/* Map */}
-          <div className="border rounded-lg overflow-hidden">
+          <div className="w-full">
             <Map
               center={getMapCenter()}
               zoom={markers.length > 0 ? 14 : 13}
               height="400px"
+              className="w-full"
             >
               {/* Office geofence */}
               {showOffice && officeLocation && (
