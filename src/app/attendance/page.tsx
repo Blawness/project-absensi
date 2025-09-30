@@ -63,15 +63,15 @@ async function getAttendanceRecords(userId: string, userRole: string) {
             );
             const data = await response.json();
             checkInLocation = {
-              latitude: record.checkInLatitude,
-              longitude: record.checkInLongitude,
-              address: data?.display_name || `${record.checkInLatitude.toFixed(6)}, ${record.checkInLongitude.toFixed(6)}`,
+              latitude: Number(record.checkInLatitude),
+              longitude: Number(record.checkInLongitude),
+              address: data?.display_name || `${Number(record.checkInLatitude).toFixed(6)}, ${Number(record.checkInLongitude).toFixed(6)}`,
             };
           } catch (error) {
             checkInLocation = {
-              latitude: record.checkInLatitude,
-              longitude: record.checkInLongitude,
-              address: `${record.checkInLatitude.toFixed(6)}, ${record.checkInLongitude.toFixed(6)}`,
+              latitude: Number(record.checkInLatitude),
+              longitude: Number(record.checkInLongitude),
+              address: `${Number(record.checkInLatitude).toFixed(6)}, ${Number(record.checkInLongitude).toFixed(6)}`,
             };
           }
         }
@@ -88,21 +88,31 @@ async function getAttendanceRecords(userId: string, userRole: string) {
             );
             const data = await response.json();
             checkOutLocation = {
-              latitude: record.checkOutLatitude,
-              longitude: record.checkOutLongitude,
-              address: data?.display_name || `${record.checkOutLatitude.toFixed(6)}, ${record.checkOutLongitude.toFixed(6)}`,
+              latitude: Number(record.checkOutLatitude),
+              longitude: Number(record.checkOutLongitude),
+              address: data?.display_name || `${Number(record.checkOutLatitude).toFixed(6)}, ${Number(record.checkOutLongitude).toFixed(6)}`,
             };
           } catch (error) {
             checkOutLocation = {
-              latitude: record.checkOutLatitude,
-              longitude: record.checkOutLongitude,
-              address: `${record.checkOutLatitude.toFixed(6)}, ${record.checkOutLongitude.toFixed(6)}`,
+              latitude: Number(record.checkOutLatitude),
+              longitude: Number(record.checkOutLongitude),
+              address: `${Number(record.checkOutLatitude).toFixed(6)}, ${Number(record.checkOutLongitude).toFixed(6)}`,
             };
           }
         }
 
         return {
           ...record,
+          // Convert Decimal fields to plain numbers for serialization
+          checkInLatitude: record.checkInLatitude ? Number(record.checkInLatitude) : null,
+          checkInLongitude: record.checkInLongitude ? Number(record.checkInLongitude) : null,
+          checkInAccuracy: record.checkInAccuracy ? Number(record.checkInAccuracy) : null,
+          checkOutLatitude: record.checkOutLatitude ? Number(record.checkOutLatitude) : null,
+          checkOutLongitude: record.checkOutLongitude ? Number(record.checkOutLongitude) : null,
+          checkOutAccuracy: record.checkOutAccuracy ? Number(record.checkOutAccuracy) : null,
+          workHours: record.workHours ? Number(record.workHours) : null,
+          overtimeHours: Number(record.overtimeHours),
+          lateMinutes: record.lateMinutes,
           checkInLocation,
           checkOutLocation,
         };
