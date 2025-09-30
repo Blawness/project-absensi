@@ -4,6 +4,7 @@ import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { AttendanceMap } from '@/components/attendance/attendance-map';
 import { format } from 'date-fns';
 
 async function getAttendanceRecords(userId: string, userRole: string) {
@@ -44,7 +45,71 @@ async function getAttendanceRecords(userId: string, userRole: string) {
       take: 50, // Limit to last 50 records
     });
 
-    return records;
+    // Get location data for records that have it
+    const recordsWithLocation = await Promise.all(
+      records.map(async (record) => {
+        let checkInLocation = null;
+        let checkOutLocation = null;
+
+        if (record.checkInLatitude && record.checkInLongitude) {
+          try {
+            const response = await fetch(
+              `https://nominatim.openstreetmap.org/reverse?format=json&lat=${record.checkInLatitude}&lon=${record.checkInLongitude}&zoom=18&addressdetails=1`,
+              {
+                headers: {
+                  'User-Agent': 'Absensi-Standalone/1.0'
+                }
+              }
+            );
+            const data = await response.json();
+            checkInLocation = {
+              latitude: record.checkInLatitude,
+              longitude: record.checkInLongitude,
+              address: data?.display_name || `${record.checkInLatitude.toFixed(6)}, ${record.checkInLongitude.toFixed(6)}`,
+            };
+          } catch (error) {
+            checkInLocation = {
+              latitude: record.checkInLatitude,
+              longitude: record.checkInLongitude,
+              address: `${record.checkInLatitude.toFixed(6)}, ${record.checkInLongitude.toFixed(6)}`,
+            };
+          }
+        }
+
+        if (record.checkOutLatitude && record.checkOutLongitude) {
+          try {
+            const response = await fetch(
+              `https://nominatim.openstreetmap.org/reverse?format=json&lat=${record.checkOutLatitude}&lon=${record.checkOutLongitude}&zoom=18&addressdetails=1`,
+              {
+                headers: {
+                  'User-Agent': 'Absensi-Standalone/1.0'
+                }
+              }
+            );
+            const data = await response.json();
+            checkOutLocation = {
+              latitude: record.checkOutLatitude,
+              longitude: record.checkOutLongitude,
+              address: data?.display_name || `${record.checkOutLatitude.toFixed(6)}, ${record.checkOutLongitude.toFixed(6)}`,
+            };
+          } catch (error) {
+            checkOutLocation = {
+              latitude: record.checkOutLatitude,
+              longitude: record.checkOutLongitude,
+              address: `${record.checkOutLatitude.toFixed(6)}, ${record.checkOutLongitude.toFixed(6)}`,
+            };
+          }
+        }
+
+        return {
+          ...record,
+          checkInLocation,
+          checkOutLocation,
+        };
+      })
+    );
+
+    return recordsWithLocation;
   } catch (error) {
     console.error('Error fetching attendance records:', error);
     return [];
@@ -59,6 +124,13 @@ export default async function AttendancePage() {
   }
 
   const records = await getAttendanceRecords(session.user.id, session.user.role);
+
+  // Get office location for map
+  const officeLocation = {
+    center: { latitude: -6.2088, longitude: 106.8456 },
+    radius: 100,
+    tolerance: 10,
+  };
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -169,6 +241,14 @@ export default async function AttendancePage() {
             )}
           </CardContent>
         </Card>
+
+        {/* Attendance Map */}
+        {records.some(r => r.checkInLocation || r.checkOutLocation) && (
+          <AttendanceMap
+            records={records}
+            officeLocation={officeLocation}
+          />
+        )}
       </div>
     </div>
   );

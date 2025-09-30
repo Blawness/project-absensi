@@ -4,6 +4,8 @@ import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Map } from '@/components/ui/map';
+import { MapGeofence } from '@/components/ui/map-geofence';
 import { hasPermission } from '@/lib/rbac';
 import { Permission } from '@/types/permissions';
 
@@ -66,15 +68,34 @@ export default async function SettingsPage() {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
+                {/* Interactive Map */}
+                <div className="border rounded-lg overflow-hidden">
+                  <Map
+                    center={[-6.2088, 106.8456]}
+                    zoom={16}
+                    height="300px"
+                  >
+                    <MapGeofence
+                      geofence={{
+                        center: { latitude: -6.2088, longitude: 106.8456 },
+                        radius: 100,
+                        tolerance: 10,
+                      }}
+                      showLabel={true}
+                    />
+                  </Map>
+                </div>
+
                 <div className="p-4 bg-gray-50 rounded-lg">
                   <h4 className="font-medium mb-2">Current Settings:</h4>
-                  <div className="text-sm text-gray-600">
-                    <p>Latitude: -6.2088</p>
-                    <p>Longitude: 106.8456</p>
-                    <p>Radius: 100 meters</p>
-                    <p>Address: Jakarta, Indonesia</p>
+                  <div className="text-sm text-gray-600 space-y-1">
+                    <p>📍 Coordinates: -6.2088, 106.8456</p>
+                    <p>📏 Radius: 100 meters</p>
+                    <p>🎯 Tolerance: 10 meters</p>
+                    <p>🏢 Address: Jakarta, Indonesia</p>
                   </div>
                 </div>
+
                 {hasPermission(session.user.role, Permission.SETTINGS_UPDATE) && (
                   <Button className="w-full">
                     Update Location

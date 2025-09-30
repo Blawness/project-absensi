@@ -115,7 +115,6 @@ project-absensi/
    DATABASE_URL="mysql://username:password@localhost:3306/absensi_db"
    NEXTAUTH_SECRET="your-secret-key"
    NEXTAUTH_URL="http://localhost:3000"
-   GOOGLE_MAPS_API_KEY="your-google-maps-api-key"
    ```
 
 3. **Setup database**

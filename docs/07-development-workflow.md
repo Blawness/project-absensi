@@ -152,7 +152,6 @@ NEXTAUTH_SECRET="your-secret-key-here"
 NEXTAUTH_URL="http://localhost:3000"
 
 # External APIs
-GOOGLE_MAPS_API_KEY="your-google-maps-api-key"
 SENDGRID_API_KEY="your-sendgrid-api-key"
 
 # Application
@@ -916,7 +915,6 @@ npm run dev
 Copy `.env.example` to `.env.local` and configure:
 - `DATABASE_URL` - MySQL connection string
 - `NEXTAUTH_SECRET` - JWT secret key
-- `GOOGLE_MAPS_API_KEY` - Google Maps API key
 
 ## Contributing
 1. Fork the repository

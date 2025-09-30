@@ -111,29 +111,28 @@ export const validateLocation = (
 };
 
 /**
- * Reverse geocode coordinates to address using Google Maps API
+ * Reverse geocode coordinates to address using OpenStreetMap Nominatim API
  */
 export const reverseGeocode = async (
   latitude: number,
   longitude: number
 ): Promise<string> => {
-  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-  
-  if (!apiKey) {
-    return `${latitude.toFixed(6)}, ${longitude.toFixed(6)}`;
-  }
-
   try {
     const response = await fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`
+      `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`,
+      {
+        headers: {
+          'User-Agent': 'Absensi-Standalone/1.0'
+        }
+      }
     );
-    
+
     const data = await response.json();
-    
-    if (data.status === 'OK' && data.results.length > 0) {
-      return data.results[0].formatted_address;
+
+    if (data && data.display_name) {
+      return data.display_name;
     }
-    
+
     return `${latitude.toFixed(6)}, ${longitude.toFixed(6)}`;
   } catch (error) {
     console.error('Reverse geocoding error:', error);

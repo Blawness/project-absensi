@@ -480,7 +480,6 @@ const securityHeaders = {
 DATABASE_URL="mysql://user:pass@host:port/db"
 NEXTAUTH_SECRET="your-secret-key"
 NEXTAUTH_URL="https://your-domain.com"
-GOOGLE_MAPS_API_KEY="your-api-key"
 SENDGRID_API_KEY="your-sendgrid-key"
 ```
 
