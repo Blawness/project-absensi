@@ -69,3 +69,6 @@ export async function requireAnyRole(request: NextRequest): Promise<NextResponse
 
   return null; // Any authenticated user is allowed
 }
+
+
+

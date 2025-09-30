@@ -293,3 +293,6 @@ async function generateDepartmentReport(where: any) {
 
   return Object.values(departmentStats);
 }
+
+
+
