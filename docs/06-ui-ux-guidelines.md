@@ -8,12 +8,14 @@
 3. **Mobile-First**: Optimized untuk mobile devices
 4. **Consistency**: Konsisten di seluruh aplikasi
 5. **Performance**: Fast loading dan smooth interactions
+6. **Dark-First**: Modern dark theme dengan aksen warna yang elegan
 
 ### Design Goals
 - **Intuitive**: Mudah dipahami tanpa training
 - **Efficient**: Menyelesaikan task dengan minimal clicks
 - **Reliable**: Konsisten dan predictable
-- **Beautiful**: Modern dan professional
+- **Beautiful**: Modern, elegan, dan professional dengan tema gelap
+- **Modern**: Mengikuti tren desain terkini dengan fokus pada kegunaan
 
 ---
 
@@ -21,19 +23,19 @@
 
 ### Color Palette
 
-#### Primary Colors
+#### Primary Colors (Dark Theme)
 ```css
-/* Primary Blue */
---primary-50: #eff6ff;
---primary-100: #dbeafe;
---primary-200: #bfdbfe;
---primary-300: #93c5fd;
---primary-400: #60a5fa;
---primary-500: #3b82f6;  /* Main Primary */
---primary-600: #2563eb;
---primary-700: #1d4ed8;
---primary-800: #1e40af;
---primary-900: #1e3a8a;
+/* Primary Purple - Modern accent color */
+--primary-50: #faf5ff;
+--primary-100: #f3e8ff;
+--primary-200: #e9d5ff;
+--primary-300: #d8b4fe;
+--primary-400: #c084fc;
+--primary-500: #a855f7;  /* Main Primary - Purple */
+--primary-600: #9333ea;  /* Hover state */
+--primary-700: #7c3aed;  /* Active state */
+--primary-800: #6b21a8;
+--primary-900: #581c87;
 
 /* Success Green */
 --success-50: #f0fdf4;
@@ -47,7 +49,7 @@
 --success-800: #166534;
 --success-900: #14532d;
 
-/* Warning Orange */
+/* Warning Yellow/Orange */
 --warning-50: #fffbeb;
 --warning-100: #fef3c7;
 --warning-200: #fde68a;
@@ -72,19 +74,27 @@
 --error-900: #7f1d1d;
 ```
 
-#### Neutral Colors
+#### Dark Theme Colors
 ```css
-/* Gray Scale */
---gray-50: #f9fafb;
---gray-100: #f3f4f6;
---gray-200: #e5e7eb;
---gray-300: #d1d5db;
---gray-400: #9ca3af;
---gray-500: #6b7280;
---gray-600: #4b5563;
---gray-700: #374151;
---gray-800: #1f2937;
---gray-900: #111827;
+/* Dark Gray Scale - Main theme colors */
+--gray-50: #f9fafb;    /* Very light - rare use */
+--gray-100: #f3f4f6;   /* Light - borders/cards */
+--gray-200: #e5e7eb;   /* Light gray - subtle elements */
+--gray-300: #d1d5db;   /* Medium light - disabled text */
+--gray-400: #9ca3af;   /* Medium - secondary text */
+--gray-500: #6b7280;   /* Medium dark - muted text */
+--gray-600: #4b5563;   /* Dark - body text */
+--gray-700: #374151;   /* Darker - headings */
+--gray-800: #1f2937;   /* Very dark - cards/surfaces */
+--gray-900: #111827;   /* Almost black - main background */
+--gray-950: #030712;   /* Pure dark - page background */
+
+/* Surface Colors */
+--surface-primary: #1f2937;    /* Main card background */
+--surface-secondary: #374151;  /* Secondary elements */
+--surface-tertiary: #4b5563;   /* Borders and dividers */
+--background: #030712;          /* Page background */
+--background-secondary: #111827; /* Section backgrounds */
 ```
 
 ### Typography
@@ -251,11 +261,11 @@ const Button: React.FC<ButtonProps> = ({
   const baseClasses = 'inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
   
   const variantClasses = {
-    primary: 'bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500',
-    secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500',
-    outline: 'border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:ring-primary-500',
-    ghost: 'text-gray-700 hover:bg-gray-100 focus:ring-gray-500',
-    danger: 'bg-error-600 text-white hover:bg-error-700 focus:ring-error-500'
+    primary: 'bg-purple-600 text-white hover:bg-purple-700 focus:ring-purple-500',
+    secondary: 'bg-gray-700 text-white hover:bg-gray-600 focus:ring-gray-500',
+    outline: 'border border-gray-600 bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white focus:ring-purple-500',
+    ghost: 'text-gray-300 hover:bg-gray-800 hover:text-white focus:ring-gray-500',
+    danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500'
   };
   
   const sizeClasses = {
@@ -433,16 +443,16 @@ const Card: React.FC<CardProps> = ({
   className = ''
 }) => {
   return (
-    <div className={`bg-white rounded-lg shadow-md border border-gray-200 ${className}`}>
+    <div className={`bg-gray-800 rounded-lg border border-gray-700 shadow-lg ${className}`}>
       {(title || subtitle || actions) && (
-        <div className="px-6 py-4 border-b border-gray-200">
+        <div className="px-6 py-4 border-b border-gray-700">
           <div className="flex items-center justify-between">
             <div>
               {title && (
-                <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+                <h3 className="text-lg font-semibold text-white">{title}</h3>
               )}
               {subtitle && (
-                <p className="text-sm text-gray-600">{subtitle}</p>
+                <p className="text-sm text-gray-400">{subtitle}</p>
               )}
             </div>
             {actions && (
@@ -467,35 +477,35 @@ const AttendanceCard: React.FC<{
 }> = ({ user, record, onCheckIn, onCheckOut }) => {
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'present': return 'text-success-600 bg-success-50';
-      case 'late': return 'text-warning-600 bg-warning-50';
-      case 'absent': return 'text-error-600 bg-error-50';
-      case 'half_day': return 'text-warning-600 bg-warning-50';
-      default: return 'text-gray-600 bg-gray-50';
+      case 'present': return 'text-green-400 bg-green-900/20';
+      case 'late': return 'text-yellow-400 bg-yellow-900/20';
+      case 'absent': return 'text-red-400 bg-red-900/20';
+      case 'half_day': return 'text-orange-400 bg-orange-900/20';
+      default: return 'text-gray-400 bg-gray-900/20';
     }
   };
 
   return (
-    <Card className="hover:shadow-lg transition-shadow">
+    <Card className="hover:shadow-xl transition-all duration-200 hover:bg-gray-750">
       <div className="flex items-center space-x-4">
         <div className="flex-shrink-0">
-          <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
-            <span className="text-primary-600 font-semibold">
+          <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
+            <span className="text-white font-semibold">
               {user.name.charAt(0).toUpperCase()}
             </span>
           </div>
         </div>
         <div className="flex-1 min-w-0">
-          <h4 className="text-lg font-medium text-gray-900 truncate">
+          <h4 className="text-lg font-medium text-white truncate">
             {user.name}
           </h4>
-          <p className="text-sm text-gray-500">{user.position}</p>
+          <p className="text-sm text-gray-400">{user.position}</p>
           <div className="flex items-center space-x-4 mt-2">
             <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(record.status)}`}>
               {record.status.replace('_', ' ').toUpperCase()}
             </span>
             {record.workHours && (
-              <span className="text-sm text-gray-600">
+              <span className="text-sm text-gray-300">
                 {record.workHours}h worked
               </span>
             )}
@@ -503,7 +513,7 @@ const AttendanceCard: React.FC<{
         </div>
         <div className="flex space-x-2">
           {!record.checkInTime && onCheckIn && (
-            <Button size="sm" onClick={onCheckIn}>
+            <Button size="sm" variant="primary" onClick={onCheckIn}>
               Check In
             </Button>
           )}
@@ -563,15 +573,15 @@ const DataTable = <T,>({
 
   return (
     <div className="overflow-x-auto">
-      <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-gray-50">
+      <table className="min-w-full divide-y divide-gray-700">
+        <thead className="bg-gray-800">
           <tr>
             {columns.map((column) => (
               <th
                 key={String(column.key)}
                 className={`
-                  px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider
-                  ${column.sortable ? 'cursor-pointer hover:bg-gray-100' : ''}
+                  px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider
+                  ${column.sortable ? 'cursor-pointer hover:bg-gray-700' : ''}
                 `}
                 onClick={() => column.sortable && handleSort(column.key)}
               >
@@ -589,11 +599,11 @@ const DataTable = <T,>({
             ))}
           </tr>
         </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
+        <tbody className="bg-gray-900 divide-y divide-gray-700">
           {data.map((row, index) => (
-            <tr key={index} className="hover:bg-gray-50">
+            <tr key={index} className="hover:bg-gray-800">
               {columns.map((column) => (
-                <td key={String(column.key)} className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td key={String(column.key)} className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                   {column.render
                     ? column.render(row[column.key], row)
                     : String(row[column.key] || '-')
@@ -651,15 +661,15 @@ const Modal: React.FC<ModalProps> = ({
         {/* Modal */}
         <div className={`
           inline-block w-full ${sizeClasses[size]} p-6 my-8 overflow-hidden text-left align-middle
-          transition-all transform bg-white shadow-xl rounded-lg
+          transition-all transform bg-gray-800 shadow-xl rounded-lg border border-gray-700
         `}>
           {title && (
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-medium text-gray-900">{title}</h3>
+              <h3 className="text-lg font-medium text-white">{title}</h3>
               {showCloseButton && (
                 <button
                   onClick={onClose}
-                  className="text-gray-400 hover:text-gray-600"
+                  className="text-gray-400 hover:text-gray-300"
                 >
                   <XIcon className="w-6 h-6" />
                 </button>
@@ -717,13 +727,13 @@ const Spinner: React.FC<SpinnerProps> = ({ size = 'md', className = '' }) => {
 const SkeletonCard: React.FC = () => {
   return (
     <div className="animate-pulse">
-      <div className="bg-white rounded-lg shadow-md border border-gray-200 p-6">
+      <div className="bg-gray-800 rounded-lg border border-gray-700 p-6">
         <div className="flex items-center space-x-4">
-          <div className="w-12 h-12 bg-gray-200 rounded-full"></div>
+          <div className="w-12 h-12 bg-gray-700 rounded-full"></div>
           <div className="flex-1 space-y-2">
-            <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-            <div className="h-3 bg-gray-200 rounded w-1/2"></div>
-            <div className="h-3 bg-gray-200 rounded w-1/4"></div>
+            <div className="h-4 bg-gray-700 rounded w-3/4"></div>
+            <div className="h-3 bg-gray-700 rounded w-1/2"></div>
+            <div className="h-3 bg-gray-700 rounded w-1/4"></div>
           </div>
         </div>
       </div>
@@ -1101,15 +1111,36 @@ const ProgressBar: React.FC<{
 
 ### Design Token System
 ```typescript
-// Design tokens for consistent theming
+// Design tokens for consistent theming (Dark Theme)
 export const designTokens = {
   colors: {
     primary: {
-      50: '#eff6ff',
-      500: '#3b82f6',
-      900: '#1e3a8a',
+      50: '#faf5ff',
+      400: '#c084fc',
+      500: '#a855f7',  // Main Purple
+      600: '#9333ea',  // Hover state
+      700: '#7c3aed',  // Active state
     },
-    // ... other colors
+    surface: {
+      primary: '#1f2937',     // Main card background
+      secondary: '#374151',   // Secondary elements
+      tertiary: '#4b5563',    // Borders and dividers
+    },
+    background: {
+      primary: '#030712',     // Page background
+      secondary: '#111827',   // Section backgrounds
+    },
+    text: {
+      primary: '#f9fafb',     // Main text
+      secondary: '#d1d5db',   // Secondary text
+      muted: '#9ca3af',       // Muted text
+    },
+    status: {
+      success: '#22c55e',
+      warning: '#f59e0b',
+      error: '#ef4444',
+      info: '#3b82f6',
+    }
   },
   spacing: {
     xs: '0.25rem',
@@ -1117,6 +1148,7 @@ export const designTokens = {
     md: '1rem',
     lg: '1.5rem',
     xl: '2rem',
+    '2xl': '3rem',
   },
   typography: {
     fontFamily: {
@@ -1129,13 +1161,22 @@ export const designTokens = {
       base: '1rem',
       lg: '1.125rem',
       xl: '1.25rem',
+      '2xl': '1.5rem',
+      '3xl': '1.875rem',
     },
   },
   shadows: {
-    sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
-    md: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
-    lg: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
+    sm: '0 1px 2px 0 rgb(0 0 0 / 0.3)',
+    md: '0 4px 6px -1px rgb(0 0 0 / 0.4)',
+    lg: '0 10px 15px -3px rgb(0 0 0 / 0.5)',
+    xl: '0 20px 25px -5px rgb(0 0 0 / 0.6)',
   },
+  borderRadius: {
+    sm: '0.375rem',
+    md: '0.5rem',
+    lg: '0.75rem',
+    xl: '1rem',
+  }
 } as const;
 ```
 
