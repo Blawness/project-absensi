@@ -33,7 +33,7 @@ export function MapGeofence({
         <Popup>
           <div className="p-2">
             <h3 className="font-semibold text-lg mb-2">🎯 Geofence Area</h3>
-            <div className="text-sm text-gray-600 space-y-1">
+            <div className="text-sm text-gray-400 space-y-1">
               <p>📍 Center: {geofence.center.latitude.toFixed(6)}, {geofence.center.longitude.toFixed(6)}</p>
               <p>📏 Radius: {geofence.radius} meters</p>
               <p>🎯 Tolerance: {geofence.tolerance} meters</p>

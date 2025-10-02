@@ -47,7 +47,7 @@ export default function SignInForm({ callbackUrl }: SignInFormProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gray-950 flex items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold text-center">
@@ -60,7 +60,7 @@ export default function SignInForm({ callbackUrl }: SignInFormProps) {
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             {error && (
-              <div className="p-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md">
+              <div className="p-3 text-sm text-red-400 bg-red-900/20 border border-red-800 rounded-md">
                 {error}
               </div>
             )}
@@ -111,9 +111,9 @@ export default function SignInForm({ callbackUrl }: SignInFormProps) {
             </Button>
           </form>
 
-          <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-            <h3 className="font-semibold text-blue-900 mb-2">Demo Accounts:</h3>
-            <div className="text-sm text-blue-800 space-y-1">
+          <div className="mt-6 p-4 bg-gray-800 rounded-lg">
+            <h3 className="font-semibold text-white mb-2">Demo Accounts:</h3>
+            <div className="text-sm text-gray-300 space-y-1">
               <div><strong>Admin:</strong> admin@company.com / admin123</div>
               <div><strong>Manager:</strong> manager@company.com / manager123</div>
               <div><strong>User:</strong> user@company.com / user123</div>

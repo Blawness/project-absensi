@@ -253,40 +253,38 @@ export default async function AttendancePage() {
               {/* Mobile Card View */}
               <div className="md:hidden space-y-4">
                 {records.map((record) => (
-                  <Card key={record.id} className="bg-card">
-                    <CardContent className="p-4">
-                      <div className="flex justify-between items-start mb-3">
-                        <div>
-                          <div className="font-medium text-foreground">{record.user.name}</div>
-                          {record.user.department && (
-                            <div className="text-sm text-muted-foreground">{record.user.department}</div>
-                          )}
-                        </div>
-                        <Badge className={getStatusColor(record.status)}>
-                          {record.status.replace('_', ' ').toUpperCase()}
-                        </Badge>
+                  <div key={record.id} className="bg-card border border-border rounded-lg p-4">
+                    <div className="flex justify-between items-start mb-3">
+                      <div>
+                        <div className="font-medium text-foreground">{record.user.name}</div>
+                        {record.user.department && (
+                          <div className="text-sm text-muted-foreground">{record.user.department}</div>
+                        )}
                       </div>
+                      <Badge className={getStatusColor(record.status)}>
+                        {record.status.replace('_', ' ').toUpperCase()}
+                      </Badge>
+                    </div>
 
-                      <div className="grid grid-cols-2 gap-3 text-sm">
-                        <div>
-                          <span className="text-muted-foreground">Date:</span>
-                          <div className="font-medium text-foreground">{formatDate(record.date)}</div>
-                        </div>
-                        <div>
-                          <span className="text-muted-foreground">Check In:</span>
-                          <div className="font-medium text-foreground">{formatTime(record.checkInTime)}</div>
-                        </div>
-                        <div>
-                          <span className="text-muted-foreground">Check Out:</span>
-                          <div className="font-medium text-foreground">{formatTime(record.checkOutTime)}</div>
-                        </div>
-                        <div>
-                          <span className="text-muted-foreground">Work Hours:</span>
-                          <div className="font-medium text-foreground">{record.workHours ? `${Number(record.workHours).toFixed(1)}h` : 'N/A'}</div>
-                        </div>
+                    <div className="grid grid-cols-2 gap-3 text-sm">
+                      <div>
+                        <span className="text-muted-foreground">Date:</span>
+                        <div className="font-medium text-foreground">{formatDate(record.date)}</div>
                       </div>
-                    </CardContent>
-                  </Card>
+                      <div>
+                        <span className="text-muted-foreground">Check In:</span>
+                        <div className="font-medium text-foreground">{formatTime(record.checkInTime)}</div>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground">Check Out:</span>
+                        <div className="font-medium text-foreground">{formatTime(record.checkOutTime)}</div>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground">Work Hours:</span>
+                        <div className="font-medium text-foreground">{record.workHours ? `${Number(record.workHours).toFixed(1)}h` : 'N/A'}</div>
+                      </div>
+                    </div>
+                  </div>
                 ))}
               </div>
             )}

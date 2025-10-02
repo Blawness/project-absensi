@@ -97,13 +97,13 @@ export default async function ReportsPage() {
   const reportData = await getReportData(session.user.id, session.user.role);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-950">
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold text-white">
             📈 Reports & Analytics
           </h1>
-          <p className="text-gray-600 mt-2">
+          <p className="text-gray-400 mt-2">
             View attendance reports and analytics
           </p>
         </div>
@@ -151,12 +151,12 @@ export default async function ReportsPage() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Absent</CardTitle>
-              <svg className="h-4 w-4 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-4 w-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-red-600">{reportData.absentCount}</div>
+              <div className="text-2xl font-bold text-red-400">{reportData.absentCount}</div>
               <p className="text-xs text-muted-foreground">Absent days</p>
             </CardContent>
           </Card>

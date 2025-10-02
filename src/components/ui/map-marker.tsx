@@ -72,7 +72,7 @@ export function MapMarker({ marker, icon, onClick }: MapMarkerProps) {
           </h3>
 
           {marker.address && (
-            <p className="text-sm text-gray-600 mb-2">
+            <p className="text-sm text-gray-400 mb-2">
               📍 {marker.address}
             </p>
           )}

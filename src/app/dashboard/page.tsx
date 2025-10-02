@@ -113,18 +113,18 @@ export default async function DashboardPage() {
     console.error('Dashboard stats error:', error);
     // Return a minimal dashboard with error handling
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-950">
         <div className="container mx-auto px-4 py-8">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-3xl font-bold text-white">
               Welcome, {session.user.name || 'User'}! 👋
             </h1>
-            <p className="text-gray-600 mt-2">
+            <p className="text-gray-400 mt-2">
               Unable to load dashboard data
             </p>
           </div>
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-            <p className="text-red-600">Error loading dashboard statistics. Please try refreshing the page.</p>
+          <div className="bg-red-900/20 border border-red-800 rounded-lg p-4">
+            <p className="text-red-400">Error loading dashboard statistics. Please try refreshing the page.</p>
           </div>
         </div>
       </div>

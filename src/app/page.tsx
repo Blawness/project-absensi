@@ -14,13 +14,13 @@ export default async function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gray-950">
       <div className="container mx-auto px-4 py-16">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl font-bold text-white mb-4">
             🎯 Absensi Standalone
           </h1>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-gray-400 mb-8">
             Employee attendance management system with GPS tracking
           </p>
           
@@ -62,7 +62,7 @@ export default async function HomePage() {
                   </Button>
                 </Link>
                 
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-gray-400">
                   <p className="font-semibold mb-2">Demo Accounts:</p>
                   <div className="space-y-1">
                     <p>Admin: admin@company.com / admin123</p>

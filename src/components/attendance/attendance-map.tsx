@@ -193,17 +193,17 @@ export function AttendanceMap({
 
           {/* Selected Record Info */}
           {selectedRecord && (
-            <div className="p-4 bg-blue-50 rounded-lg">
-              <h4 className="font-semibold mb-2">Selected Location</h4>
-              <div className="text-sm text-gray-600 space-y-1">
+            <div className="p-4 bg-gray-800 rounded-lg">
+              <h4 className="font-semibold mb-2 text-white">Selected Location</h4>
+              <div className="text-sm text-gray-400 space-y-1">
                 <p><strong>User:</strong> {selectedRecord.user.name}</p>
                 {selectedRecord.user.department && (
                   <p><strong>Department:</strong> {selectedRecord.user.department}</p>
                 )}
                 <Badge className={
-                  selectedRecord.status === 'present' ? 'bg-green-100 text-green-800' :
-                  selectedRecord.status === 'late' ? 'bg-yellow-100 text-yellow-800' :
-                  'bg-red-100 text-red-800'
+                  selectedRecord.status === 'present' ? 'bg-green-900/20 text-green-400' :
+                  selectedRecord.status === 'late' ? 'bg-yellow-900/20 text-yellow-400' :
+                  'bg-red-900/20 text-red-400'
                 }>
                   {selectedRecord.status.toUpperCase()}
                 </Badge>
@@ -215,7 +215,7 @@ export function AttendanceMap({
           )}
 
           {/* Summary */}
-          <div className="text-sm text-gray-600">
+          <div className="text-sm text-gray-400">
             <p>Total Records: {records.length}</p>
             <p>Check-ins: {records.filter(r => r.checkInLocation).length}</p>
             <p>Check-outs: {records.filter(r => r.checkOutLocation).length}</p>

@@ -46,13 +46,13 @@ export default async function SettingsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-950">
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold text-white">
             ⚙️ System Settings
           </h1>
-          <p className="text-gray-600 mt-2">
+          <p className="text-gray-400 mt-2">
             Configure system settings and preferences
           </p>
         </div>
@@ -86,9 +86,9 @@ export default async function SettingsPage() {
                   </Map>
                 </div>
 
-                <div className="p-4 bg-gray-50 rounded-lg">
-                  <h4 className="font-medium mb-2">Current Settings:</h4>
-                  <div className="text-sm text-gray-600 space-y-1">
+                <div className="p-4 bg-gray-800 rounded-lg">
+                  <h4 className="font-medium mb-2 text-white">Current Settings:</h4>
+                  <div className="text-sm text-gray-400 space-y-1">
                     <p>📍 Coordinates: -6.2088, 106.8456</p>
                     <p>📏 Radius: 100 meters</p>
                     <p>🎯 Tolerance: 10 meters</p>
@@ -115,9 +115,9 @@ export default async function SettingsPage() {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <div className="p-4 bg-gray-50 rounded-lg">
-                  <h4 className="font-medium mb-2">Current Schedule:</h4>
-                  <div className="text-sm text-gray-600 space-y-1">
+                <div className="p-4 bg-gray-800 rounded-lg">
+                  <h4 className="font-medium mb-2 text-white">Current Schedule:</h4>
+                  <div className="text-sm text-gray-400 space-y-1">
                     <p>Check-in: 06:00 - 10:00</p>
                     <p>Check-out: 14:00 - 22:00</p>
                     <p>Min work hours: 4h</p>
@@ -144,9 +144,9 @@ export default async function SettingsPage() {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <div className="p-4 bg-gray-50 rounded-lg">
-                  <h4 className="font-medium mb-2">Current Settings:</h4>
-                  <div className="text-sm text-gray-600 space-y-1">
+                <div className="p-4 bg-gray-800 rounded-lg">
+                  <h4 className="font-medium mb-2 text-white">Current Settings:</h4>
+                  <div className="text-sm text-gray-400 space-y-1">
                     <p>Status: Enabled</p>
                     <p>Radius: 100 meters</p>
                     <p>Accuracy threshold: 10 meters</p>
@@ -171,9 +171,9 @@ export default async function SettingsPage() {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <div className="p-4 bg-gray-50 rounded-lg">
-                  <h4 className="font-medium mb-2">Current Settings:</h4>
-                  <div className="text-sm text-gray-600 space-y-1">
+                <div className="p-4 bg-gray-800 rounded-lg">
+                  <h4 className="font-medium mb-2 text-white">Current Settings:</h4>
+                  <div className="text-sm text-gray-400 space-y-1">
                     <p>Email notifications: Enabled</p>
                     <p>Daily summary: Enabled</p>
                     <p>Late reminders: Enabled</p>
@@ -200,16 +200,16 @@ export default async function SettingsPage() {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="text-2xl font-bold text-green-600">Online</div>
-                <div className="text-sm text-gray-600">System Status</div>
+                <div className="text-2xl font-bold text-green-400">Online</div>
+                <div className="text-sm text-gray-400">System Status</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold">v1.0.0</div>
-                <div className="text-sm text-gray-600">Version</div>
+                <div className="text-2xl font-bold text-white">v1.0.0</div>
+                <div className="text-sm text-gray-400">Version</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold">MySQL</div>
-                <div className="text-sm text-gray-600">Database</div>
+                <div className="text-2xl font-bold text-white">MySQL</div>
+                <div className="text-sm text-gray-400">Database</div>
               </div>
             </div>
           </CardContent>
@@ -226,49 +226,49 @@ export default async function SettingsPage() {
           <CardContent>
             {settings.length === 0 ? (
               <div className="text-center py-8">
-                <p className="text-gray-500">No settings found.</p>
+                <p className="text-gray-400">No settings found.</p>
               </div>
             ) : (
               <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50">
+                <table className="min-w-full divide-y divide-gray-700">
+                  <thead className="bg-gray-800">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                         Key
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                         Description
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                         Value
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                         Public
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                         Actions
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
+                  <tbody className="bg-gray-900 divide-y divide-gray-700">
                     {settings.map((setting) => (
-                      <tr key={setting.id} className="hover:bg-gray-50">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      <tr key={setting.id} className="hover:bg-gray-800">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
                           {setting.key}
                         </td>
-                        <td className="px-6 py-4 text-sm text-gray-900">
+                        <td className="px-6 py-4 text-sm text-gray-300">
                           {setting.description || 'No description'}
                         </td>
-                        <td className="px-6 py-4 text-sm text-gray-900">
-                          <pre className="text-xs bg-gray-100 p-2 rounded max-w-xs overflow-x-auto">
+                        <td className="px-6 py-4 text-sm text-gray-300">
+                          <pre className="text-xs bg-gray-800 p-2 rounded max-w-xs overflow-x-auto">
                             {formatSettingValue(setting.value)}
                           </pre>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                            setting.isPublic 
-                              ? 'bg-green-100 text-green-800' 
-                              : 'bg-red-100 text-red-800'
+                            setting.isPublic
+                              ? 'bg-green-900/20 text-green-400'
+                              : 'bg-red-900/20 text-red-400'
                           }`}>
                             {setting.isPublic ? 'Yes' : 'No'}
                           </span>

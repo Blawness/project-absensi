@@ -237,7 +237,7 @@ export default function CheckInCheckOut() {
         </div>
 
         {/* Instructions */}
-        <div className="text-sm text-gray-600 space-y-1">
+        <div className="text-sm text-gray-400 space-y-1">
           <p>• Make sure your GPS/location is enabled</p>
           <p>• You must be within office radius to check in/out</p>
           <p>• Check-in is only allowed once per day</p>
