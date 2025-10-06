@@ -8,33 +8,10 @@ import { Map } from '@/components/ui/map';
 import { MapMarker, MapMarkers } from '@/components/ui/map-marker';
 import { MapGeofence } from '@/components/ui/map-geofence';
 import { LocationMarker } from '@/components/ui/map-marker';
-import { GeofenceConfig } from '@/types';
-
-interface AttendanceRecord {
-  id: string;
-  user: {
-    id: string;
-    name: string;
-    department?: string;
-  };
-  checkInTime?: Date;
-  checkOutTime?: Date;
-  checkInLocation?: {
-    latitude: number;
-    longitude: number;
-    address: string;
-  };
-  checkOutLocation?: {
-    latitude: number;
-    longitude: number;
-    address: string;
-  };
-  status: string;
-  workHours?: number;
-}
+import { GeofenceConfig, AbsensiRecordWithLocation } from '@/types';
 
 interface AttendanceMapProps {
-  records: AttendanceRecord[];
+  records: AbsensiRecordWithLocation[];
   officeLocation?: GeofenceConfig;
   className?: string;
 }
@@ -44,7 +21,7 @@ export function AttendanceMap({
   officeLocation,
   className = ''
 }: AttendanceMapProps) {
-  const [selectedRecord, setSelectedRecord] = useState<AttendanceRecord | null>(null);
+  const [selectedRecord, setSelectedRecord] = useState<AbsensiRecordWithLocation | null>(null);
   const [showCheckIns, setShowCheckIns] = useState(true);
   const [showCheckOuts, setShowCheckOuts] = useState(true);
   const [showOffice, setShowOffice] = useState(true);

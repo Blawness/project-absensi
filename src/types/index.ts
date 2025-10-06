@@ -125,6 +125,27 @@ export interface AbsensiRecordWithUser extends AbsensiRecord {
   user: User;
 }
 
+export interface AbsensiRecordWithLocation extends AbsensiRecord {
+  user: User;
+  createdByAction?: string;
+  createdByUser?: {
+    id: string;
+    name: string;
+  };
+  checkInLocation?: {
+    latitude: number;
+    longitude: number;
+    address: string;
+    accuracy: number;
+  };
+  checkOutLocation?: {
+    latitude: number;
+    longitude: number;
+    address: string;
+    accuracy: number;
+  };
+}
+
 // Dashboard data types
 export interface DashboardStats {
   totalEmployees: number;

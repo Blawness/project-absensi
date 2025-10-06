@@ -1,11 +1,18 @@
 'use client';
 
 import { useSession } from 'next-auth/react';
+import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
 export function TopBar() {
   const { data: session } = useSession();
+  const pathname = usePathname();
+
+  // Don't render top bar on auth pages
+  if (pathname?.startsWith('/auth')) {
+    return null;
+  }
 
   return (
     <div className="bg-gray-900 border-b border-gray-800 px-6 py-4">

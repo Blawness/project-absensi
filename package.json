@@ -6,9 +6,12 @@
   "directories": {
     "doc": "docs"
   },
+  "prisma": {
+    "schema": "prisma/schema.prisma"
+  },
   "scripts": {
     "dev": "prisma generate && prisma db push && next dev --port 3002 --hostname 0.0.0.0",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
     "db:generate": "prisma generate",
@@ -33,6 +36,7 @@
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
     "@types/bcryptjs": "^2.4.6",
+    "@types/leaflet": "^1.9.20",
     "@types/node": "^20.9.0",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
@@ -40,12 +44,14 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
+    "leaflet": "^1.9.4",
     "mysql2": "^3.6.5",
     "next": "^15.5.4",
     "next-auth": "^4.24.11",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-hook-form": "^7.47.0",
+    "react-leaflet": "^5.0.0",
     "tailwind-merge": "^3.3.1",
     "typescript": "^5.2.2",
     "zod": "^3.22.4"

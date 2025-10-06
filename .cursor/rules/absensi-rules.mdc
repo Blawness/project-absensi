@@ -1,7 +1,12 @@
 ---
 alwaysApply: true
 ---
-/**
+// AI Agent MUST always execute: cd /project-absensi before running any command, script, or shell operation related to this project.
+// This ensures all commands are run in the correct project root and prevents context errors.
+
+
+
+
  * Absensi Standalone - AI Agent Rules
  *
  * 1. Context Awareness:

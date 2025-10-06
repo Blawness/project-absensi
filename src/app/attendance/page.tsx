@@ -4,8 +4,12 @@ import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { AttendanceMap } from '@/components/attendance/attendance-map';
+import CheckInCheckOut from '@/components/attendance/checkin-checkout';
+import AdminCheckInCheckOut from '@/components/attendance/admin-checkin-checkout';
 import { format } from 'date-fns';
+import { AbsensiRecordWithLocation } from '@/types';
 
 async function getAttendanceRecords(userId: string, userRole: string) {
   try {
@@ -45,9 +49,43 @@ async function getAttendanceRecords(userId: string, userRole: string) {
       take: 50, // Limit to last 50 records
     });
 
+    // Get activity logs to determine who created each record
+    const recordsWithActivity = await Promise.all(
+      records.map(async (record) => {
+        const activityLog = await prisma.activityLog.findFirst({
+          where: {
+            resourceType: 'absensi_record',
+            resourceId: record.id,
+            action: {
+              in: ['check_in', 'admin_check_in', 'check_out', 'admin_check_out']
+            }
+          },
+          select: {
+            id: true,
+            action: true,
+            user: {
+              select: {
+                id: true,
+                name: true,
+              }
+            }
+          },
+          orderBy: {
+            createdAt: 'asc'
+          }
+        });
+
+        return {
+          ...record,
+          createdByAction: activityLog?.action,
+          createdByUser: activityLog?.user,
+        };
+      })
+    );
+
     // Get location data for records that have it
     const recordsWithLocation = await Promise.all(
-      records.map(async (record) => {
+      recordsWithActivity.map(async (record) => {
         let checkInLocation = null;
         let checkOutLocation = null;
 
@@ -119,7 +157,7 @@ async function getAttendanceRecords(userId: string, userRole: string) {
       })
     );
 
-    return recordsWithLocation;
+    return recordsWithActivity;
   } catch (error) {
     console.error('Error fetching attendance records:', error);
     return [];
@@ -133,7 +171,7 @@ export default async function AttendancePage() {
     redirect('/auth/signin');
   }
 
-  const records = await getAttendanceRecords(session.user.id, session.user.role);
+  const records = await getAttendanceRecords(session.user.id, session.user.role) as AbsensiRecordWithLocation[];
 
   // Get office location for map
   const officeLocation = {
@@ -166,17 +204,39 @@ export default async function AttendancePage() {
     return format(new Date(date), 'MMM dd, yyyy');
   };
 
+  const canManageAttendance = session.user.role === 'admin' || session.user.role === 'manager';
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-foreground">
-            📊 Attendance Records
+            📊 Attendance Management
           </h1>
           <p className="text-muted-foreground mt-2">
-            View and manage attendance records
+            Check in/out and manage attendance records
           </p>
         </div>
+
+        {/* Check-in/Check-out Tabs */}
+        <Tabs defaultValue="personal" className="w-full">
+          <TabsList className="grid w-full grid-cols-2">
+            <TabsTrigger value="personal">Personal Check-in</TabsTrigger>
+            {canManageAttendance && (
+              <TabsTrigger value="admin">Admin Check-in</TabsTrigger>
+            )}
+          </TabsList>
+
+          <TabsContent value="personal">
+            <CheckInCheckOut />
+          </TabsContent>
+
+          {canManageAttendance && (
+            <TabsContent value="admin">
+              <AdminCheckInCheckOut />
+            </TabsContent>
+          )}
+        </Tabs>
 
         <Card>
           <CardHeader>
@@ -191,6 +251,7 @@ export default async function AttendancePage() {
                 <p className="text-muted-foreground">No attendance records found.</p>
               </div>
             ) : (
+              <>
               {/* Desktop Table View */}
               <div className="hidden md:block overflow-x-auto">
                 <table className="min-w-full divide-y divide-border">
@@ -228,6 +289,11 @@ export default async function AttendancePage() {
                             {record.user.department && (
                               <div className="text-muted-foreground">{record.user.department}</div>
                             )}
+                            {record.createdByUser && record.createdByUser.id !== record.user.id && (
+                              <div className="text-xs text-blue-600">
+                                Checked in by: {record.createdByUser.name}
+                              </div>
+                            )}
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-foreground">
@@ -260,6 +326,11 @@ export default async function AttendancePage() {
                         {record.user.department && (
                           <div className="text-sm text-muted-foreground">{record.user.department}</div>
                         )}
+                        {record.createdByUser && record.createdByUser.id !== record.user.id && (
+                          <div className="text-xs text-blue-600">
+                            Checked in by: {record.createdByUser.name}
+                          </div>
+                        )}
                       </div>
                       <Badge className={getStatusColor(record.status)}>
                         {record.status.replace('_', ' ').toUpperCase()}
@@ -287,6 +358,7 @@ export default async function AttendancePage() {
                   </div>
                 ))}
               </div>
+              </>
             )}
           </CardContent>
         </Card>

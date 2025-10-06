@@ -159,7 +159,7 @@ function AdminDashboard({ stats }: { stats: any }) {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Total Users</CardTitle>
             <div className="p-2 bg-blue-600 rounded-lg">
@@ -174,7 +174,7 @@ function AdminDashboard({ stats }: { stats: any }) {
           </CardContent>
         </Card>
 
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Present Today</CardTitle>
             <div className="p-2 bg-green-600 rounded-lg">
@@ -189,7 +189,7 @@ function AdminDashboard({ stats }: { stats: any }) {
           </CardContent>
         </Card>
 
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Late Today</CardTitle>
             <div className="p-2 bg-yellow-600 rounded-lg">
@@ -204,7 +204,7 @@ function AdminDashboard({ stats }: { stats: any }) {
           </CardContent>
         </Card>
 
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Absent Today</CardTitle>
             <div className="p-2 bg-red-600 rounded-lg">
@@ -221,7 +221,7 @@ function AdminDashboard({ stats }: { stats: any }) {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader>
             <CardTitle className="text-white">👥 User Management</CardTitle>
             <CardDescription className="text-gray-400">Manage users and permissions</CardDescription>
@@ -233,7 +233,7 @@ function AdminDashboard({ stats }: { stats: any }) {
           </CardContent>
         </Card>
 
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader>
             <CardTitle className="text-white">📈 System Reports</CardTitle>
             <CardDescription className="text-gray-400">Generate comprehensive reports</CardDescription>
@@ -253,7 +253,7 @@ function ManagerDashboard({ stats }: { stats: any }) {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Team Present</CardTitle>
             <div className="p-2 bg-green-600 rounded-lg">
@@ -268,7 +268,7 @@ function ManagerDashboard({ stats }: { stats: any }) {
           </CardContent>
         </Card>
 
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Late Arrivals</CardTitle>
             <div className="p-2 bg-yellow-600 rounded-lg">
@@ -283,7 +283,7 @@ function ManagerDashboard({ stats }: { stats: any }) {
           </CardContent>
         </Card>
 
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Absent</CardTitle>
             <div className="p-2 bg-red-600 rounded-lg">
@@ -300,7 +300,7 @@ function ManagerDashboard({ stats }: { stats: any }) {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader>
             <CardTitle className="text-white">👥 Team Management</CardTitle>
             <CardDescription className="text-gray-400">Manage your team members</CardDescription>
@@ -312,7 +312,7 @@ function ManagerDashboard({ stats }: { stats: any }) {
           </CardContent>
         </Card>
 
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader>
             <CardTitle className="text-white">📊 Personal Stats</CardTitle>
             <CardDescription className="text-gray-400">Your attendance record</CardDescription>
@@ -347,7 +347,7 @@ function UserDashboard({ stats }: { stats: any }) {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Check In/Out</CardTitle>
             <div className="p-2 bg-blue-600 rounded-lg">
@@ -362,7 +362,7 @@ function UserDashboard({ stats }: { stats: any }) {
           </CardContent>
         </Card>
 
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Today's Status</CardTitle>
             <div className="p-2 bg-green-600 rounded-lg">
@@ -377,7 +377,7 @@ function UserDashboard({ stats }: { stats: any }) {
           </CardContent>
         </Card>
 
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Work Hours</CardTitle>
             <div className="p-2 bg-purple-600 rounded-lg">
@@ -394,7 +394,7 @@ function UserDashboard({ stats }: { stats: any }) {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader>
             <CardTitle className="text-white">📊 My Statistics</CardTitle>
             <CardDescription className="text-gray-400">Your personal attendance record</CardDescription>
@@ -421,7 +421,7 @@ function UserDashboard({ stats }: { stats: any }) {
           </CardContent>
         </Card>
 
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader>
             <CardTitle className="text-white">📋 My Reports</CardTitle>
             <CardDescription className="text-gray-400">View your attendance reports</CardDescription>
