@@ -159,10 +159,10 @@ function AdminDashboard({ stats }: { stats: any }) {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
+        <Card className="glass-card hover:shadow-glass-lg transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Total Users</CardTitle>
-            <div className="p-2 bg-blue-600 rounded-lg">
+            <div className="p-2 gradient-primary rounded-lg shadow-lg">
               <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
               </svg>
@@ -174,10 +174,10 @@ function AdminDashboard({ stats }: { stats: any }) {
           </CardContent>
         </Card>
 
-        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
+        <Card className="glass-card hover:shadow-glass-lg transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Present Today</CardTitle>
-            <div className="p-2 bg-green-600 rounded-lg">
+            <div className="p-2 gradient-success rounded-lg shadow-lg">
               <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -189,10 +189,10 @@ function AdminDashboard({ stats }: { stats: any }) {
           </CardContent>
         </Card>
 
-        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
+        <Card className="glass-card hover:shadow-glass-lg transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Late Today</CardTitle>
-            <div className="p-2 bg-yellow-600 rounded-lg">
+            <div className="p-2 gradient-warning rounded-lg shadow-lg">
               <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -204,10 +204,10 @@ function AdminDashboard({ stats }: { stats: any }) {
           </CardContent>
         </Card>
 
-        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
+        <Card className="glass-card hover:shadow-glass-lg transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Absent Today</CardTitle>
-            <div className="p-2 bg-red-600 rounded-lg">
+            <div className="p-2 gradient-error rounded-lg shadow-lg">
               <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -221,27 +221,27 @@ function AdminDashboard({ stats }: { stats: any }) {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
+        <Card className="glass-card hover:shadow-glass-lg transition-all duration-300">
           <CardHeader>
             <CardTitle className="text-white">👥 User Management</CardTitle>
             <CardDescription className="text-gray-400">Manage users and permissions</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Button className="w-full bg-purple-600 hover:bg-purple-700">➕ Create New User</Button>
-            <Button variant="outline" className="w-full border-gray-600 text-gray-300 hover:bg-gray-700">📊 View All Users</Button>
-            <Button variant="outline" className="w-full border-gray-600 text-gray-300 hover:bg-gray-700">🔧 Manage Roles</Button>
+            <Button className="w-full glass-primary hover:shadow-xl">➕ Create New User</Button>
+            <Button variant="glass" className="w-full">📊 View All Users</Button>
+            <Button variant="glass" className="w-full">🔧 Manage Roles</Button>
           </CardContent>
         </Card>
 
-        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
+        <Card className="glass-card hover:shadow-glass-lg transition-all duration-300">
           <CardHeader>
             <CardTitle className="text-white">📈 System Reports</CardTitle>
             <CardDescription className="text-gray-400">Generate comprehensive reports</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Button className="w-full bg-purple-600 hover:bg-purple-700">📋 Daily Report</Button>
-            <Button variant="outline" className="w-full border-gray-600 text-gray-300 hover:bg-gray-700">📊 Monthly Report</Button>
-            <Button variant="outline" className="w-full border-gray-600 text-gray-300 hover:bg-gray-700">📈 Export Data</Button>
+            <Button className="w-full glass-primary hover:shadow-xl">📋 Daily Report</Button>
+            <Button variant="glass" className="w-full">📊 Monthly Report</Button>
+            <Button variant="glass" className="w-full">📈 Export Data</Button>
           </CardContent>
         </Card>
       </div>
@@ -253,10 +253,10 @@ function ManagerDashboard({ stats }: { stats: any }) {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
+        <Card className="glass-card hover:shadow-glass-lg transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Team Present</CardTitle>
-            <div className="p-2 bg-green-600 rounded-lg">
+            <div className="p-2 gradient-success rounded-lg shadow-lg">
               <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -268,10 +268,10 @@ function ManagerDashboard({ stats }: { stats: any }) {
           </CardContent>
         </Card>
 
-        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
+        <Card className="glass-card hover:shadow-glass-lg transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Late Arrivals</CardTitle>
-            <div className="p-2 bg-yellow-600 rounded-lg">
+            <div className="p-2 gradient-warning rounded-lg shadow-lg">
               <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -283,10 +283,10 @@ function ManagerDashboard({ stats }: { stats: any }) {
           </CardContent>
         </Card>
 
-        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
+        <Card className="glass-card hover:shadow-glass-lg transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Absent</CardTitle>
-            <div className="p-2 bg-red-600 rounded-lg">
+            <div className="p-2 gradient-error rounded-lg shadow-lg">
               <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -300,19 +300,19 @@ function ManagerDashboard({ stats }: { stats: any }) {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
+        <Card className="glass-card hover:shadow-glass-lg transition-all duration-300">
           <CardHeader>
             <CardTitle className="text-white">👥 Team Management</CardTitle>
             <CardDescription className="text-gray-400">Manage your team members</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Button className="w-full bg-purple-600 hover:bg-purple-700">👀 View Team</Button>
-            <Button variant="outline" className="w-full border-gray-600 text-gray-300 hover:bg-gray-700">📋 Team Reports</Button>
-            <Button variant="outline" className="w-full border-gray-600 text-gray-300 hover:bg-gray-700">📊 Export Team Data</Button>
+            <Button className="w-full glass-primary hover:shadow-xl">👀 View Team</Button>
+            <Button variant="glass" className="w-full">📋 Team Reports</Button>
+            <Button variant="glass" className="w-full">📊 Export Team Data</Button>
           </CardContent>
         </Card>
 
-        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
+        <Card className="glass-card hover:shadow-glass-lg transition-all duration-300">
           <CardHeader>
             <CardTitle className="text-white">📊 Personal Stats</CardTitle>
             <CardDescription className="text-gray-400">Your attendance record</CardDescription>
@@ -347,10 +347,10 @@ function UserDashboard({ stats }: { stats: any }) {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
+        <Card className="glass-card hover:shadow-glass-lg transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Check In/Out</CardTitle>
-            <div className="p-2 bg-blue-600 rounded-lg">
+            <div className="p-2 gradient-primary rounded-lg shadow-lg">
               <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -362,10 +362,10 @@ function UserDashboard({ stats }: { stats: any }) {
           </CardContent>
         </Card>
 
-        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
+        <Card className="glass-card hover:shadow-glass-lg transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Today's Status</CardTitle>
-            <div className="p-2 bg-green-600 rounded-lg">
+            <div className="p-2 gradient-success rounded-lg shadow-lg">
               <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -377,10 +377,10 @@ function UserDashboard({ stats }: { stats: any }) {
           </CardContent>
         </Card>
 
-        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
+        <Card className="glass-card hover:shadow-glass-lg transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-200">Work Hours</CardTitle>
-            <div className="p-2 bg-purple-600 rounded-lg">
+            <div className="p-2 gradient-primary rounded-lg shadow-lg">
               <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -394,7 +394,7 @@ function UserDashboard({ stats }: { stats: any }) {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
+        <Card className="glass-card hover:shadow-glass-lg transition-all duration-300">
           <CardHeader>
             <CardTitle className="text-white">📊 My Statistics</CardTitle>
             <CardDescription className="text-gray-400">Your personal attendance record</CardDescription>
@@ -421,15 +421,15 @@ function UserDashboard({ stats }: { stats: any }) {
           </CardContent>
         </Card>
 
-        <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
+        <Card className="glass-card hover:shadow-glass-lg transition-all duration-300">
           <CardHeader>
             <CardTitle className="text-white">📋 My Reports</CardTitle>
             <CardDescription className="text-gray-400">View your attendance reports</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Button className="w-full bg-purple-600 hover:bg-purple-700">📅 Daily Report</Button>
-            <Button variant="outline" className="w-full border-gray-600 text-gray-300 hover:bg-gray-700">📊 Monthly Report</Button>
-            <Button variant="outline" className="w-full border-gray-600 text-gray-300 hover:bg-gray-700">📈 Export My Data</Button>
+            <Button className="w-full glass-primary hover:shadow-xl">📅 Daily Report</Button>
+            <Button variant="glass" className="w-full">📊 Monthly Report</Button>
+            <Button variant="glass" className="w-full">📈 Export My Data</Button>
           </CardContent>
         </Card>
       </div>

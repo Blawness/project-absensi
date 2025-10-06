@@ -50,16 +50,20 @@ export default function Navigation() {
   );
 
   return (
-    <div className="w-64 bg-gray-900/20 backdrop-blur-xl border-r border-white/10 flex flex-col h-screen">
+    <div className="w-64 bg-gradient-to-b from-gray-900/30 to-gray-900/10 backdrop-blur-xl border-r border-white/20 flex flex-col h-screen shadow-glass">
       {/* Logo/Brand */}
-      <div className="p-6 border-b border-white/10">
+      <div className="p-6 border-b border-white/20 bg-gradient-to-r from-white/5 to-transparent">
         <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">V</span>
+          <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-purple-700 rounded-lg flex items-center justify-center overflow-hidden shadow-lg">
+            <img
+              src="/favicon.ico"
+              alt="Absensi PKP Logo"
+              className="w-6 h-6 object-contain"
+            />
           </div>
           <div>
-            <h1 className="text-white font-semibold text-lg">Vernon</h1>
-            <p className="text-gray-400 text-xs">Management</p>
+            <h1 className="text-white font-semibold text-lg">Absensi PKP</h1>
+            <p className="text-gray-300 text-xs">Management</p>
           </div>
         </div>
       </div>
@@ -72,10 +76,10 @@ export default function Navigation() {
             <Link
               key={item.name}
               href={item.href}
-              className={`flex items-center space-x-3 px-3 py-3 rounded-lg text-sm font-medium transition-colors ${
+              className={`flex items-center space-x-3 px-3 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                 isActive
-                  ? 'bg-purple-600 text-white'
-                  : 'text-gray-300 hover:bg-white/10 hover:text-white hover:backdrop-blur-sm'
+                  ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
+                  : 'text-gray-300 hover:bg-white/10 hover:text-white hover:backdrop-blur-sm hover:shadow-md'
               }`}
             >
               <span className="text-lg">{item.icon}</span>
@@ -86,10 +90,10 @@ export default function Navigation() {
       </nav>
 
       {/* Bottom Section */}
-      <div className="p-4 border-t border-white/10">
+      <div className="p-4 border-t border-white/20 bg-gradient-to-t from-white/5 to-transparent">
         {/* User Profile */}
-        <div className="flex items-center space-x-3 mb-4 p-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
-          <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
+        <div className="flex items-center space-x-3 mb-4 p-3 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 shadow-lg">
+          <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-purple-700 rounded-full flex items-center justify-center shadow-lg">
             <span className="text-white font-semibold text-sm">
               {session.user.name?.charAt(0).toUpperCase() || 'U'}
             </span>
@@ -98,7 +102,7 @@ export default function Navigation() {
             <p className="text-white text-sm font-medium truncate">
               {session.user.name || 'User'}
             </p>
-            <p className="text-gray-400 text-xs capitalize">
+            <p className="text-gray-300 text-xs capitalize">
               {session.user.role || 'user'}
             </p>
           </div>
@@ -108,7 +112,7 @@ export default function Navigation() {
         <div className="space-y-1">
           <Link
             href="/admin/settings"
-            className="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-white/10 hover:text-white hover:backdrop-blur-sm transition-colors"
+            className="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-white/10 hover:text-white hover:backdrop-blur-sm transition-all duration-200 hover:shadow-md"
           >
             <span className="text-lg">⚙️</span>
             <span>Setting</span>
@@ -116,7 +120,7 @@ export default function Navigation() {
 
           <button
             onClick={() => signOut()}
-            className="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors w-full"
+            className="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-white/10 hover:text-white transition-all duration-200 hover:shadow-md w-full"
           >
             <span className="text-lg">🚪</span>
             <span>Log Out</span>

@@ -12,9 +12,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Absensi Standalone',
+  title: 'Absensi PKP',
   description: 'Employee attendance management system with GPS tracking',
   manifest: '/manifest.json',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/icon-192x192.png',
+  },
 };
 
 export const viewport = {
@@ -32,7 +37,6 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <meta name="theme-color" content="#1a1a1a" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={`${inter.className} bg-gray-950 text-gray-100`}>
         <AuthSessionProvider>

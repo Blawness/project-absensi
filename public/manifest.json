@@ -1,6 +1,6 @@
 {
-  "name": "Absensi Standalone",
-  "short_name": "Absensi",
+  "name": "Absensi PKP",
+  "short_name": "Absensi PKP",
   "description": "Employee attendance management system with GPS tracking",
   "start_url": "/",
   "display": "standalone",

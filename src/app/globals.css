@@ -63,20 +63,81 @@
   .loading-spinner {
     @apply inline-block animate-spin rounded-full h-4 w-4 border-b-2 border-primary;
   }
-  
+
   .btn-primary {
     @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-10 py-2 px-4;
   }
-  
+
   .btn-secondary {
     @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 py-2 px-4;
   }
-  
+
   .card {
     @apply rounded-lg border bg-card text-card-foreground shadow-sm;
   }
-  
+
   .input {
     @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Glassmorphism utilities */
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+
+  .glass-card {
+    @apply bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 shadow-2xl;
+  }
+
+  .glass-subtle {
+    @apply bg-white/5 backdrop-blur-sm border border-white/5;
+  }
+
+  /* Enhanced shadows for glassmorphism */
+  .shadow-glass {
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .shadow-glass-lg {
+    box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  /* Gradient backgrounds */
+  .gradient-primary {
+    background: linear-gradient(135deg, rgb(168, 85, 247) 0%, rgb(147, 51, 234) 100%);
+  }
+
+  .gradient-success {
+    background: linear-gradient(135deg, rgb(34, 197, 94) 0%, rgb(22, 163, 74) 100%);
+  }
+
+  .gradient-warning {
+    background: linear-gradient(135deg, rgb(245, 158, 11) 0%, rgb(217, 119, 6) 100%);
+  }
+
+  .gradient-error {
+    background: linear-gradient(135deg, rgb(239, 68, 68) 0%, rgb(220, 38, 38) 100%);
+  }
+
+  .gradient-info {
+    background: linear-gradient(135deg, rgb(59, 130, 246) 0%, rgb(29, 78, 216) 100%);
+  }
+
+  /* Glassmorphism buttons */
+  .btn-glass {
+    @apply bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all duration-200;
+  }
+
+  /* Animated gradients */
+  .gradient-bg {
+    background: linear-gradient(-45deg, #a855f7, #7c3aed, #ec4899, #f59e0b);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 }
