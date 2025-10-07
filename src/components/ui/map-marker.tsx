@@ -25,7 +25,7 @@ const createIcon = (type: LocationMarker['type']) => {
     checkin: '#10B981', // green
     checkout: '#EF4444', // red
     office: '#3B82F6', // blue
-    user: '#8B5CF6', // purple
+    user: '#2563EB', // deep blue
   };
 
   const color = colors[type || 'user'];

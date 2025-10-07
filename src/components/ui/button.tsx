@@ -15,7 +15,7 @@ const buttonVariants = cva(
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
         glass: 'bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 shadow-glass hover:shadow-glass-lg',
-        'glass-primary': 'bg-gradient-to-r from-purple-600/20 to-purple-700/20 backdrop-blur-sm border border-purple-400/30 text-purple-100 hover:from-purple-600/30 hover:to-purple-700/30 shadow-lg hover:shadow-xl',
+        'glass-primary': 'bg-gradient-to-r from-blue-600/20 to-blue-700/20 backdrop-blur-sm border border-blue-400/30 text-blue-100 hover:from-blue-600/30 hover:to-blue-700/30 shadow-lg hover:shadow-xl',
         'glass-success': 'bg-gradient-to-r from-green-600/20 to-green-700/20 backdrop-blur-sm border border-green-400/30 text-green-100 hover:from-green-600/30 hover:to-green-700/30 shadow-lg hover:shadow-xl',
         'glass-warning': 'bg-gradient-to-r from-yellow-600/20 to-orange-600/20 backdrop-blur-sm border border-yellow-400/30 text-yellow-100 hover:from-yellow-600/30 hover:to-orange-600/30 shadow-lg hover:shadow-xl',
         'glass-error': 'bg-gradient-to-r from-red-600/20 to-red-700/20 backdrop-blur-sm border border-red-400/30 text-red-100 hover:from-red-600/30 hover:to-red-700/30 shadow-lg hover:shadow-xl',

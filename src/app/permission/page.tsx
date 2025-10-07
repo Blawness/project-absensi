@@ -199,7 +199,7 @@ export default async function PermissionPage() {
                         {users.map((user: any) => (
                           <div key={user.id} className="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg border border-gray-700">
                             <div className="flex items-center space-x-3">
-                              <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
+                              <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
                                 <span className="text-white font-semibold text-sm">
                                   {user.name.charAt(0).toUpperCase()}
                                 </span>
@@ -275,7 +275,7 @@ export default async function PermissionPage() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Button className="bg-purple-600 hover:bg-purple-700">
+              <Button className="bg-blue-600 hover:bg-blue-700">
                 ➕ Assign Role
               </Button>
               <Button variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-700">
@@ -399,4 +399,5 @@ export default async function PermissionPage() {
     </div>
   );
 }
+
 

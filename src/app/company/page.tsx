@@ -139,14 +139,14 @@ export default async function CompanyPage() {
           <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-gray-200">Departments</CardTitle>
-              <div className="p-2 bg-purple-600 rounded-lg">
+              <div className="p-2 bg-blue-600 rounded-lg">
                 <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-purple-400">{companyData.departments.length}</div>
+              <div className="text-2xl font-bold text-blue-400">{companyData.departments.length}</div>
               <p className="text-xs text-gray-400">Active departments</p>
             </CardContent>
           </Card>
@@ -283,7 +283,7 @@ export default async function CompanyPage() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Button className="bg-purple-600 hover:bg-purple-700">
+              <Button className="bg-blue-600 hover:bg-blue-700">
                 ➕ Add Department
               </Button>
               <Button variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-700">

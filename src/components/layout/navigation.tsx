@@ -54,7 +54,7 @@ export default function Navigation() {
       {/* Logo/Brand */}
       <div className="p-6 border-b border-white/20 bg-gradient-to-r from-white/5 to-transparent">
         <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-purple-700 rounded-lg flex items-center justify-center overflow-hidden shadow-lg">
+          <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center overflow-hidden shadow-lg">
             <img
               src="/favicon.ico"
               alt="Absensi PKP Logo"
@@ -78,7 +78,7 @@ export default function Navigation() {
               href={item.href}
               className={`flex items-center space-x-3 px-3 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                 isActive
-                  ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
+                  ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
                   : 'text-gray-300 hover:bg-white/10 hover:text-white hover:backdrop-blur-sm hover:shadow-md'
               }`}
             >
@@ -93,7 +93,7 @@ export default function Navigation() {
       <div className="p-4 border-t border-white/20 bg-gradient-to-t from-white/5 to-transparent">
         {/* User Profile */}
         <div className="flex items-center space-x-3 mb-4 p-3 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 shadow-lg">
-          <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-purple-700 rounded-full flex items-center justify-center shadow-lg">
+          <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center shadow-lg">
             <span className="text-white font-semibold text-sm">
               {session.user.name?.charAt(0).toUpperCase() || 'U'}
             </span>

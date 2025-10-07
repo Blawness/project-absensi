@@ -169,14 +169,14 @@ export default async function PayrollPage() {
           <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-gray-200">Total Payroll</CardTitle>
-              <div className="p-2 bg-purple-600 rounded-lg">
+              <div className="p-2 bg-blue-600 rounded-lg">
                 <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                 </svg>
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-purple-400">
+              <div className="text-2xl font-bold text-blue-400">
                 Rp {payrollData.payrollByUser.reduce((sum, user: any) => sum + user.totalSalary, 0).toLocaleString()}
               </div>
               <p className="text-xs text-gray-400">Estimated payroll cost</p>
@@ -249,7 +249,7 @@ export default async function PayrollPage() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <Button className="w-full bg-purple-600 hover:bg-purple-700">
+              <Button className="w-full bg-blue-600 hover:bg-blue-700">
                 💰 Generate Payroll Report
               </Button>
               <Button variant="outline" className="w-full border-gray-600 text-gray-300 hover:bg-gray-700">

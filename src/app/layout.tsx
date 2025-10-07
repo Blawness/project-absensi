@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  themeColor: '#000000',
+  themeColor: '#1e40af',
 };
 
 export default function RootLayout({
@@ -35,16 +35,16 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className="dark">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <meta name="theme-color" content="#1a1a1a" />
+        <meta name="theme-color" content="#1e40af" />
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body className={`${inter.className} bg-gray-950 text-gray-100`}>
+      <body className={`${inter.className} bg-gradient-to-br from-gray-950 via-blue-950/20 to-gray-900 text-gray-100`}>
         <AuthSessionProvider>
           <div id="root" className="flex min-h-screen">
             <Navigation />
             <div className="flex-1 flex flex-col">
               <TopBar />
-              <main className="flex-1 bg-gray-950 p-6">
+              <main className="flex-1 bg-gradient-to-br from-gray-950/80 via-blue-950/10 to-gray-900/80 backdrop-blur-sm p-6">
                 {children}
               </main>
             </div>
