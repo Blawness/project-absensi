@@ -40,9 +40,9 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} bg-gradient-to-br from-gray-950 via-blue-950/20 to-gray-900 text-gray-100`}>
         <AuthSessionProvider>
-          <div id="root" className="flex min-h-screen">
+          <div id="root" className="min-h-screen">
             <Navigation />
-            <div className="flex-1 flex flex-col">
+            <div className="ml-64 flex flex-col">
               <TopBar />
               <main className="flex-1 bg-gradient-to-br from-gray-950/80 via-blue-950/10 to-gray-900/80 backdrop-blur-sm p-6">
                 {children}

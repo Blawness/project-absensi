@@ -51,7 +51,7 @@ export default function Navigation() {
   );
 
   return (
-    <div className="w-64 bg-gradient-to-b from-gray-900/30 to-gray-900/10 backdrop-blur-xl border-r border-white/20 flex flex-col h-screen shadow-glass">
+    <div className="fixed top-0 left-0 w-64 bg-gradient-to-b from-gray-900/30 to-gray-900/10 backdrop-blur-xl border-r border-white/20 flex flex-col h-screen shadow-glass z-50">
       {/* Logo/Brand */}
       <div className="p-6 border-b border-white/20 bg-gradient-to-r from-white/5 to-transparent">
         <div className="flex items-center space-x-3">
