@@ -40,6 +40,10 @@ export const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
     Permission.SYSTEM_BACKUP,
   ],
   manager: [
+    // Dashboard - Manager access
+    Permission.DASHBOARD_VIEW,
+    Permission.DASHBOARD_MANAGER,
+
     // User Management - Read only for their team
     Permission.USER_READ,
 
@@ -57,8 +61,14 @@ export const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
 
     // Settings - Read only
     Permission.SETTINGS_READ,
+
+    // Location - View access
+    Permission.LOCATION_VIEW,
   ],
   user: [
+    // Dashboard - View access
+    Permission.DASHBOARD_VIEW,
+
     // Attendance - Self only
     Permission.ABSENSI_CHECKIN,
     Permission.ABSENSI_CHECKOUT,
@@ -66,6 +76,13 @@ export const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
 
     // Reports - Self only
     Permission.REPORT_READ,
+
+    // Location - View access
+    Permission.LOCATION_VIEW,
+
+    // Additional permissions for basic attendance functionality
+    Permission.ATTENDANCE_CREATE,
+    Permission.ATTENDANCE_READ,
   ],
 };
 

@@ -5,8 +5,8 @@ import { prisma } from '@/lib/prisma';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Map } from '@/components/ui/map';
-import { MapGeofence } from '@/components/ui/map-geofence';
+// Create a client component for the map
+import { OfficeMap } from '@/components/company/office-map';
 import { format } from 'date-fns';
 import { hasPermission } from '@/lib/rbac';
 import { Permission } from '@/types/permissions';
@@ -254,22 +254,7 @@ export default async function CompanyPage() {
               </div>
 
               {/* Office Location Map */}
-              <div className="border rounded-lg overflow-hidden">
-                <Map
-                  center={[-6.2088, 106.8456]}
-                  zoom={16}
-                  height="250px"
-                >
-                  <MapGeofence
-                    geofence={{
-                      center: { latitude: -6.2088, longitude: 106.8456 },
-                      radius: 100,
-                      tolerance: 10,
-                    }}
-                    showLabel={true}
-                  />
-                </Map>
-              </div>
+              <OfficeMap />
 
               {hasPermission(session.user.role, Permission.SETTINGS_UPDATE) && (
                 <Button className="w-full">

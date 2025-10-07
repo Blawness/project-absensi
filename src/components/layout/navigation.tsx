@@ -46,9 +46,12 @@ export default function Navigation() {
     );
   }
 
-  const filteredNavigation = navigation.filter(item =>
-    hasPermission(session.user.role, item.permission)
-  );
+  const filteredNavigation = navigation.filter(item => {
+    const hasPerm = hasPermission(session.user.role, item.permission);
+    console.log(`Navigation filter: ${item.name} - role: ${session.user.role}, permission: ${item.permission}, hasPermission: ${hasPerm}`);
+    console.log('User object:', session.user);
+    return hasPerm;
+  });
 
   return (
     <div className="fixed top-0 left-0 w-64 bg-gradient-to-b from-gray-900/30 to-gray-900/10 backdrop-blur-xl border-r border-white/20 flex flex-col h-screen shadow-glass z-50">
