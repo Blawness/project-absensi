@@ -5,7 +5,7 @@ import { requirePermissions, rbacMiddleware } from '@/lib/middleware/rbac-middle
 import { Permission } from '@/lib/rbac';
 import { prisma } from '@/lib/prisma';
 import { getCurrentLocation } from '@/lib/location';
-import { calculateCheckInStatus, validateCheckInTime } from '@/lib/attendance-calculations';
+import { determineCheckInStatus, validateCheckInTime } from '@/lib/attendance-calculations';
 
 export async function POST(request: NextRequest) {
   try {
@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
     // Validate check-in time
     const checkInTime = new Date();
     const timeValidation = validateCheckInTime(checkInTime);
-    
+
     if (!timeValidation.isValid) {
       return NextResponse.json(
         { error: timeValidation.message },
@@ -68,8 +68,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Calculate initial status and late minutes
-    const calculations = calculateCheckInStatus(checkInTime);
+    // Determine status based on time and location
+    const statusResult = await determineCheckInStatus(checkInTime, {
+      latitude: locationData.latitude,
+      longitude: locationData.longitude,
+      accuracy: locationData.accuracy,
+    });
 
     // Create attendance record
     const attendanceRecord = await prisma.absensiRecord.create({
@@ -81,8 +85,8 @@ export async function POST(request: NextRequest) {
         checkInLongitude: locationData.longitude,
         checkInAddress: locationData.address,
         checkInAccuracy: locationData.accuracy,
-        status: calculations.status || 'present',
-        lateMinutes: calculations.lateMinutes || 0,
+        status: statusResult.status,
+        lateMinutes: statusResult.lateMinutes,
       },
     });
 

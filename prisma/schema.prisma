@@ -21,6 +21,7 @@ enum AttendanceStatus {
   late
   absent
   half_day
+  outside
 }
 
 model User {

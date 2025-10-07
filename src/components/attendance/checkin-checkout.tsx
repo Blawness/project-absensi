@@ -57,15 +57,8 @@ export default function CheckInCheckOut() {
       const location = await getCurrentLocation();
       setCurrentLocation(location);
 
-      // Validate location against office geofence
-      const officeLocation = await getOfficeLocation();
-      const isValidLocation = validateLocation(location, officeLocation);
-
-      if (!isValidLocation) {
-        setError('You must be within the office radius to check in. Please move closer to the office location.');
-        setIsLoading(false);
-        return;
-      }
+      // Note: Location validation is now permissive - users can check in from anywhere
+      // but will be marked as "outside" if not within geofence
 
       const response = await fetch('/api/attendance/checkin', {
         method: 'POST',
@@ -102,15 +95,8 @@ export default function CheckInCheckOut() {
       const location = await getCurrentLocation();
       setCurrentLocation(location);
 
-      // Validate location against office geofence
-      const officeLocation = await getOfficeLocation();
-      const isValidLocation = validateLocation(location, officeLocation);
-
-      if (!isValidLocation) {
-        setError('You must be within the office radius to check out. Please move closer to the office location.');
-        setIsLoading(false);
-        return;
-      }
+      // Note: Location validation is now permissive - users can check out from anywhere
+      // but location is still recorded for tracking purposes
 
       const response = await fetch('/api/attendance/checkout', {
         method: 'POST',
@@ -250,9 +236,10 @@ export default function CheckInCheckOut() {
         {/* Instructions */}
         <div className="text-sm text-gray-400 space-y-1">
           <p>• Make sure your GPS/location is enabled</p>
-          <p>• You must be within office radius to check in/out</p>
+          <p>• You can check in from anywhere, but outside office area will be marked as "outside"</p>
           <p>• Check-in is only allowed once per day</p>
           <p>• Check-out is only allowed after check-in</p>
+          <p>• Check-ins after 9:00 AM will be marked as late</p>
         </div>
       </CardContent>
     </Card>
