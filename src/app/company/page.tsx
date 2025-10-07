@@ -10,6 +10,7 @@ import { MapGeofence } from '@/components/ui/map-geofence';
 import { format } from 'date-fns';
 import { hasPermission } from '@/lib/rbac';
 import { Permission } from '@/types/permissions';
+import { Building2, MapPin, Mail, TrendingUp, Settings, Plus, Users, Eye, BarChart3, Building } from 'lucide-react';
 
 async function getCompanyData() {
   try {
@@ -97,7 +98,7 @@ export default async function CompanyPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white">
-            🏢 Company Overview
+            <Building2 className="h-6 w-6" /> Company Overview
           </h1>
           <p className="text-gray-400 mt-2">
             Company information, departments, and organizational structure
@@ -218,29 +219,35 @@ export default async function CompanyPage() {
           {/* Office Information */}
           <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
             <CardHeader>
-              <CardTitle className="text-white">🏢 Office Information</CardTitle>
+              <CardTitle className="text-white flex items-center gap-2">
+                <Building className="h-5 w-5" />
+                Office Information
+              </CardTitle>
               <CardDescription className="text-gray-400">
                 Company location and contact details
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="p-4 bg-gray-800/50 rounded-lg border border-gray-700">
-                <h4 className="font-medium mb-3 text-white">📍 Main Office</h4>
+                <h4 className="font-medium mb-3 text-white flex items-center gap-2">
+                  <MapPin className="h-4 w-4" />
+                  Main Office
+                </h4>
                 <div className="space-y-2 text-sm text-gray-300">
                   <div className="flex items-center space-x-2">
-                    <span>📍</span>
+                    <MapPin className="h-4 w-4" />
                     <span>Jl. Thamrin No. 1, Jakarta Pusat</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <span>📞</span>
+                    <span className="text-lg">📞</span>
                     <span>+62 21 1234 5678</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <span>✉️</span>
+                    <Mail className="h-4 w-4" />
                     <span>info@company.com</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <span>🌐</span>
+                    <span className="text-lg">🌐</span>
                     <span>www.company.com</span>
                   </div>
                 </div>
@@ -276,7 +283,10 @@ export default async function CompanyPage() {
         {/* Company Actions */}
         <Card className="mt-8 bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-white">⚙️ Company Management</CardTitle>
+            <CardTitle className="text-white flex items-center gap-2">
+              <Settings className="h-5 w-5" />
+              Company Management
+            </CardTitle>
             <CardDescription className="text-gray-400">
               Administrative actions for company settings
             </CardDescription>
@@ -284,16 +294,16 @@ export default async function CompanyPage() {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <Button className="bg-blue-600 hover:bg-blue-700">
-                ➕ Add Department
+                <Plus className="h-4 w-4" /> Add Department
               </Button>
               <Button variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-700">
-                👥 Manage Employees
+                <Users className="h-4 w-4" /> Manage Employees
               </Button>
               <Button variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-700">
-                📊 Department Reports
+                <BarChart3 className="h-4 w-4" /> Department Reports
               </Button>
               <Button variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-700">
-                🏢 Company Settings
+                <Building className="h-4 w-4" /> Company Settings
               </Button>
             </div>
           </CardContent>
@@ -302,7 +312,10 @@ export default async function CompanyPage() {
         {/* Recent Activity */}
         <Card className="mt-8 bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-white">📈 Recent Company Activity</CardTitle>
+            <CardTitle className="text-white flex items-center gap-2">
+              <TrendingUp className="h-5 w-5" />
+              Recent Company Activity
+            </CardTitle>
             <CardDescription className="text-gray-400">
               Latest attendance activities across all departments
             </CardDescription>

@@ -9,6 +9,7 @@ import { MapMarker, MapMarkers } from '@/components/ui/map-marker';
 import { MapGeofence } from '@/components/ui/map-geofence';
 import { LocationMarker } from '@/components/ui/map-marker';
 import { GeofenceConfig, AbsensiRecordWithLocation } from '@/types';
+import { Map as MapIcon, MapPin } from 'lucide-react';
 
 interface AttendanceMapProps {
   records: AbsensiRecordWithLocation[];
@@ -83,7 +84,10 @@ export function AttendanceMap({
   return (
     <Card className={className}>
       <CardHeader>
-        <CardTitle>🗺️ Attendance Locations</CardTitle>
+        <CardTitle className="flex items-center gap-2">
+          <MapIcon className="h-5 w-5" />
+          Attendance Locations
+        </CardTitle>
         <CardDescription>
           View check-in and check-out locations on the map
         </CardDescription>
@@ -97,21 +101,21 @@ export function AttendanceMap({
               size="sm"
               onClick={() => setShowCheckIns(!showCheckIns)}
             >
-              📍 Check-ins {showCheckIns && '✓'}
+              <MapPin className="h-4 w-4" /> Check-ins {showCheckIns && '✓'}
             </Button>
             <Button
               variant={showCheckOuts ? "default" : "outline"}
               size="sm"
               onClick={() => setShowCheckOuts(!showCheckOuts)}
             >
-              📍 Check-outs {showCheckOuts && '✓'}
+              <MapPin className="h-4 w-4" /> Check-outs {showCheckOuts && '✓'}
             </Button>
             <Button
               variant={showOffice ? "default" : "outline"}
               size="sm"
               onClick={() => setShowOffice(!showOffice)}
             >
-              🏢 Office {showOffice && '✓'}
+              <MapPin className="h-4 w-4" /> Office {showOffice && '✓'}
             </Button>
           </div>
 

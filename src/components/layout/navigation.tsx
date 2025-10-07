@@ -6,15 +6,16 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { hasPermission } from '@/lib/rbac';
 import { Permission } from '@/types/permissions';
+import { Home, Users, DollarSign, BarChart3, Shield, Building2, Settings, LogOut, Plus, Wrench } from 'lucide-react';
 
 // Navigation items with icons
 const navigation = [
-  { name: 'Dashboard', href: '/dashboard', permission: Permission.DASHBOARD_VIEW, icon: '🏠' },
-  { name: 'Employee', href: '/admin/users', permission: Permission.USER_READ, icon: '👥' },
-  { name: 'Payroll', href: '/payroll', permission: Permission.USER_READ, icon: '💰' },
-  { name: 'Attendance', href: '/attendance', permission: Permission.ABSENSI_READ, icon: '📊' },
-  { name: 'Permission', href: '/permission', permission: Permission.USER_READ, icon: '📋' },
-  { name: 'Company', href: '/company', permission: Permission.USER_READ, icon: '🏢' },
+  { name: 'Dashboard', href: '/dashboard', permission: Permission.DASHBOARD_VIEW, icon: Home },
+  { name: 'Employee', href: '/admin/users', permission: Permission.USER_READ, icon: Users },
+  { name: 'Payroll', href: '/payroll', permission: Permission.USER_READ, icon: DollarSign },
+  { name: 'Attendance', href: '/attendance', permission: Permission.ABSENSI_READ, icon: BarChart3 },
+  { name: 'Permission', href: '/permission', permission: Permission.USER_READ, icon: Shield },
+  { name: 'Company', href: '/company', permission: Permission.USER_READ, icon: Building2 },
 ];
 
 export default function Navigation() {
@@ -82,7 +83,7 @@ export default function Navigation() {
                   : 'text-gray-300 hover:bg-white/10 hover:text-white hover:backdrop-blur-sm hover:shadow-md'
               }`}
             >
-              <span className="text-lg">{item.icon}</span>
+              <item.icon className="h-5 w-5" />
               <span>{item.name}</span>
             </Link>
           );
@@ -114,7 +115,7 @@ export default function Navigation() {
             href="/admin/settings"
             className="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-white/10 hover:text-white hover:backdrop-blur-sm transition-all duration-200 hover:shadow-md"
           >
-            <span className="text-lg">⚙️</span>
+            <Settings className="h-4 w-4" />
             <span>Setting</span>
           </Link>
 
@@ -122,7 +123,7 @@ export default function Navigation() {
             onClick={() => signOut()}
             className="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-white/10 hover:text-white transition-all duration-200 hover:shadow-md w-full"
           >
-            <span className="text-lg">🚪</span>
+            <LogOut className="h-4 w-4" />
             <span>Log Out</span>
           </button>
         </div>

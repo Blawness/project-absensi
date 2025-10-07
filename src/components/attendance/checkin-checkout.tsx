@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { getCurrentLocation, validateLocation, getOfficeLocation } from '@/lib/location';
 import { LocationData } from '@/types';
+import { MapPin } from 'lucide-react';
 
 export default function CheckInCheckOut() {
   const { data: session, status } = useSession();
@@ -167,7 +168,7 @@ export default function CheckInCheckOut() {
     <Card>
       <CardHeader>
         <CardTitle className="flex items-center space-x-2">
-          <span>📍</span>
+          <MapPin className="h-4 w-4" />
           <span>Check In/Out</span>
         </CardTitle>
         <CardDescription>
@@ -223,7 +224,12 @@ export default function CheckInCheckOut() {
             disabled={isLoading || todayStatus?.checkedIn}
             className="flex-1"
           >
-            {isLoading ? 'Checking In...' : '📍 Check In'}
+            {isLoading ? 'Checking In...' : (
+              <>
+                <MapPin className="h-4 w-4" />
+                Check In
+              </>
+            )}
           </Button>
 
           <Button
@@ -232,7 +238,12 @@ export default function CheckInCheckOut() {
             variant="outline"
             className="flex-1"
           >
-            {isLoading ? 'Checking Out...' : '📍 Check Out'}
+            {isLoading ? 'Checking Out...' : (
+              <>
+                <MapPin className="h-4 w-4" />
+                Check Out
+              </>
+            )}
           </Button>
         </div>
 

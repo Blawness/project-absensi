@@ -8,6 +8,7 @@ import { Map } from '@/components/ui/map';
 import { MapGeofence } from '@/components/ui/map-geofence';
 import { hasPermission } from '@/lib/rbac';
 import { Permission } from '@/types/permissions';
+import { Settings, MapPin, Building, Info, Wrench, Save, RefreshCw } from 'lucide-react';
 
 async function getSettings() {
   try {
@@ -50,7 +51,7 @@ export default async function SettingsPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white">
-            ⚙️ System Settings
+            <Settings className="h-6 w-6" /> System Settings
           </h1>
           <p className="text-gray-400 mt-2">
             Configure system settings and preferences
@@ -61,7 +62,10 @@ export default async function SettingsPage() {
           {/* Office Location Settings */}
           <Card>
             <CardHeader>
-              <CardTitle>📍 Office Location</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                <MapPin className="h-5 w-5" />
+                Office Location
+              </CardTitle>
               <CardDescription>
                 Configure office location for geofencing
               </CardDescription>
@@ -89,10 +93,22 @@ export default async function SettingsPage() {
                 <div className="p-4 bg-gray-800 rounded-lg">
                   <h4 className="font-medium mb-2 text-white">Current Settings:</h4>
                   <div className="text-sm text-gray-400 space-y-1">
-                    <p>📍 Coordinates: -6.2088, 106.8456</p>
-                    <p>📏 Radius: 100 meters</p>
-                    <p>🎯 Tolerance: 10 meters</p>
-                    <p>🏢 Address: Jakarta, Indonesia</p>
+                    <p className="flex items-center gap-2">
+                      <MapPin className="h-4 w-4" />
+                      Coordinates: -6.2088, 106.8456
+                    </p>
+                    <p className="flex items-center gap-2">
+                      <Wrench className="h-4 w-4" />
+                      Radius: 100 meters
+                    </p>
+                    <p className="flex items-center gap-2">
+                      <RefreshCw className="h-4 w-4" />
+                      Tolerance: 10 meters
+                    </p>
+                    <p className="flex items-center gap-2">
+                      <Building className="h-4 w-4" />
+                      Address: Jakarta, Indonesia
+                    </p>
                   </div>
                 </div>
 
@@ -192,7 +208,10 @@ export default async function SettingsPage() {
         {/* System Information */}
         <Card className="mt-8">
           <CardHeader>
-            <CardTitle>ℹ️ System Information</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <Info className="h-5 w-5" />
+              System Information
+            </CardTitle>
             <CardDescription>
               View system status and information
             </CardDescription>
@@ -218,7 +237,10 @@ export default async function SettingsPage() {
         {/* All Settings Table */}
         <Card className="mt-8">
           <CardHeader>
-            <CardTitle>🔧 All Settings</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <Wrench className="h-5 w-5" />
+              All Settings
+            </CardTitle>
             <CardDescription>
               View and manage all system settings
             </CardDescription>

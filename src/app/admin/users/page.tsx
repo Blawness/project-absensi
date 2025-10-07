@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
 import { hasPermission } from '@/lib/rbac';
 import { Permission } from '@/types/permissions';
+import { Users, Plus, Eye, Wrench, Trash2, Edit } from 'lucide-react';
 
 async function getUsers() {
   try {
@@ -69,7 +70,7 @@ export default async function UsersPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white">
-            👥 User Management
+            <Users className="h-6 w-6" /> User Management
           </h1>
           <p className="text-gray-400 mt-2">
             Manage users and their permissions
@@ -87,7 +88,7 @@ export default async function UsersPage() {
               </div>
               {hasPermission(session.user.role, Permission.USER_CREATE) && (
                 <Button>
-                  ➕ Add New User
+                  <Plus className="h-4 w-4" /> Add New User
                 </Button>
               )}
             </div>
@@ -131,10 +132,8 @@ export default async function UsersPage() {
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center">
                             <div className="flex-shrink-0 h-10 w-10">
-                              <div className="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center">
-                                <span className="text-sm font-medium text-white">
-                                  {user.name.charAt(0).toUpperCase()}
-                                </span>
+                              <div className="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold text-sm">
+                                {user.name.charAt(0).toUpperCase()}
                               </div>
                             </div>
                             <div className="ml-4">

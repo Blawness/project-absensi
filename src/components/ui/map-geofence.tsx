@@ -2,6 +2,7 @@
 
 import { Circle, Popup } from 'react-leaflet';
 import { GeofenceConfig } from '@/types';
+import { Target, MapPin, Ruler } from 'lucide-react';
 
 export interface MapGeofenceProps {
   geofence: GeofenceConfig;
@@ -32,11 +33,23 @@ export function MapGeofence({
       {showLabel && (
         <Popup>
           <div className="p-2">
-            <h3 className="font-semibold text-lg mb-2">🎯 Geofence Area</h3>
+            <h3 className="font-semibold text-lg mb-2 flex items-center gap-2">
+              <Target className="h-4 w-4" />
+              Geofence Area
+            </h3>
             <div className="text-sm text-gray-400 space-y-1">
-              <p>📍 Center: {geofence.center.latitude.toFixed(6)}, {geofence.center.longitude.toFixed(6)}</p>
-              <p>📏 Radius: {geofence.radius} meters</p>
-              <p>🎯 Tolerance: {geofence.tolerance} meters</p>
+              <p className="flex items-center gap-2">
+                <MapPin className="h-4 w-4" />
+                Center: {geofence.center.latitude.toFixed(6)}, {geofence.center.longitude.toFixed(6)}
+              </p>
+              <p className="flex items-center gap-2">
+                <Ruler className="h-4 w-4" />
+                Radius: {geofence.radius} meters
+              </p>
+              <p className="flex items-center gap-2">
+                <Target className="h-4 w-4" />
+                Tolerance: {geofence.tolerance} meters
+              </p>
             </div>
           </div>
         </Popup>

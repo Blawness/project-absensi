@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
 import { hasPermission } from '@/lib/rbac';
 import { Permission } from '@/types/permissions';
+import { DollarSign, Users, FileText, TrendingUp, Plus, Eye, BarChart3, Download } from 'lucide-react';
 
 async function getPayrollData(userId: string, userRole: string) {
   try {
@@ -112,7 +113,7 @@ export default async function PayrollPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white">
-            💰 Payroll Management
+            <DollarSign className="h-6 w-6" /> Payroll Management
           </h1>
           <p className="text-gray-400 mt-2">
             Manage payroll calculations and employee compensation
@@ -188,7 +189,10 @@ export default async function PayrollPage() {
           {/* Employee Payroll Summary */}
           <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
             <CardHeader>
-              <CardTitle className="text-white">👥 Employee Payroll Summary</CardTitle>
+              <CardTitle className="text-white flex items-center gap-2">
+                <Users className="h-5 w-5" />
+                Employee Payroll Summary
+              </CardTitle>
               <CardDescription className="text-gray-400">
                 Individual payroll calculations for this month
               </CardDescription>
@@ -243,23 +247,26 @@ export default async function PayrollPage() {
           {/* Payroll Actions */}
           <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
             <CardHeader>
-              <CardTitle className="text-white">📋 Payroll Actions</CardTitle>
+              <CardTitle className="text-white flex items-center gap-2">
+                <FileText className="h-5 w-5" />
+                Payroll Actions
+              </CardTitle>
               <CardDescription className="text-gray-400">
                 Generate reports and manage payroll processes
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                💰 Generate Payroll Report
+                <DollarSign className="h-4 w-4" /> Generate Payroll Report
               </Button>
               <Button variant="outline" className="w-full border-gray-600 text-gray-300 hover:bg-gray-700">
-                📄 Export Pay Slips
+                <Download className="h-4 w-4" /> Export Pay Slips
               </Button>
               <Button variant="outline" className="w-full border-gray-600 text-gray-300 hover:bg-gray-700">
-                📊 Salary Adjustment
+                <BarChart3 className="h-4 w-4" /> Salary Adjustment
               </Button>
               <Button variant="outline" className="w-full border-gray-600 text-gray-300 hover:bg-gray-700">
-                🧮 Tax Calculation
+                <TrendingUp className="h-4 w-4" /> Tax Calculation
               </Button>
             </CardContent>
           </Card>
@@ -268,7 +275,10 @@ export default async function PayrollPage() {
         {/* Recent Activity */}
         <Card className="mt-8 bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-white">📈 Recent Payroll Activity</CardTitle>
+            <CardTitle className="text-white flex items-center gap-2">
+              <TrendingUp className="h-5 w-5" />
+              Recent Payroll Activity
+            </CardTitle>
             <CardDescription className="text-gray-400">
               Latest attendance records affecting payroll calculations
             </CardDescription>

@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { hasPermission } from '@/lib/rbac';
 import { Permission } from '@/types/permissions';
+import { Users, Settings, Plus, RefreshCw, Eye, FileText, BarChart3 } from 'lucide-react';
 
 async function getPermissionData() {
   try {
@@ -174,7 +175,10 @@ export default async function PermissionPage() {
           {/* Users by Role */}
           <Card className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
             <CardHeader>
-              <CardTitle className="text-white">👥 Users by Role</CardTitle>
+              <CardTitle className="text-white flex items-center gap-2">
+                <Users className="h-5 w-5" />
+                Users by Role
+              </CardTitle>
               <CardDescription className="text-gray-400">
                 View users grouped by their assigned roles
               </CardDescription>
@@ -268,7 +272,10 @@ export default async function PermissionPage() {
         {/* Permission Actions */}
         <Card className="mt-8 bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-white">⚙️ Permission Management Actions</CardTitle>
+            <CardTitle className="text-white flex items-center gap-2">
+              <Settings className="h-5 w-5" />
+              Permission Management Actions
+            </CardTitle>
             <CardDescription className="text-gray-400">
               Tools for managing user permissions and access control
             </CardDescription>
@@ -276,16 +283,16 @@ export default async function PermissionPage() {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <Button className="bg-blue-600 hover:bg-blue-700">
-                ➕ Assign Role
+                <Plus className="h-4 w-4" /> Assign Role
               </Button>
               <Button variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-700">
-                🔄 Change Role
+                <RefreshCw className="h-4 w-4" /> Change Role
               </Button>
               <Button variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-700">
-                👀 View Permissions
+                <Eye className="h-4 w-4" /> View Permissions
               </Button>
               <Button variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-700">
-                📋 Permission Report
+                <FileText className="h-4 w-4" /> Permission Report
               </Button>
             </div>
           </CardContent>
@@ -294,7 +301,10 @@ export default async function PermissionPage() {
         {/* Permission Matrix Table */}
         <Card className="mt-8 bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-white">📊 Permission Matrix</CardTitle>
+            <CardTitle className="text-white flex items-center gap-2">
+              <BarChart3 className="h-5 w-5" />
+              Permission Matrix
+            </CardTitle>
             <CardDescription className="text-gray-400">
               Detailed view of all permissions across roles
             </CardDescription>

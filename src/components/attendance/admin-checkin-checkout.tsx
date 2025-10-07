@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { getCurrentLocation, validateLocation, getOfficeLocation } from '@/lib/location';
 import { LocationData } from '@/types';
+import { MapPin } from 'lucide-react';
 
 interface User {
   id: string;
@@ -251,7 +252,12 @@ export default function AdminCheckInCheckOut() {
             disabled={isLoading || !selectedUserId}
             className="flex-1"
           >
-            {isLoading ? 'Checking In...' : '📍 Admin Check In'}
+            {isLoading ? 'Checking In...' : (
+              <>
+                <MapPin className="h-4 w-4" />
+                Admin Check In
+              </>
+            )}
           </Button>
 
           <Button
@@ -260,7 +266,12 @@ export default function AdminCheckInCheckOut() {
             variant="outline"
             className="flex-1"
           >
-            {isLoading ? 'Checking Out...' : '📍 Admin Check Out'}
+            {isLoading ? 'Checking Out...' : (
+              <>
+                <MapPin className="h-4 w-4" />
+                Admin Check Out
+              </>
+            )}
           </Button>
         </div>
 

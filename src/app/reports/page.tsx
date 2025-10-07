@@ -5,6 +5,7 @@ import { prisma } from '@/lib/prisma';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { format } from 'date-fns';
+import { TrendingUp, FileText, Download, BarChart3, Calendar } from 'lucide-react';
 
 async function getReportData(userId: string, userRole: string) {
   try {
@@ -101,7 +102,7 @@ export default async function ReportsPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white">
-            📈 Reports & Analytics
+            <TrendingUp className="h-6 w-6" /> Reports & Analytics
           </h1>
           <p className="text-gray-400 mt-2">
             View attendance reports and analytics
@@ -165,7 +166,10 @@ export default async function ReportsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
-              <CardTitle>📊 Monthly Summary</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                <BarChart3 className="h-5 w-5" />
+                Monthly Summary
+              </CardTitle>
               <CardDescription>
                 Attendance statistics for {format(new Date(), 'MMMM yyyy')}
               </CardDescription>
@@ -209,13 +213,13 @@ export default async function ReportsPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <Button className="w-full">
-                📄 Export to PDF
+                <FileText className="h-4 w-4" /> Export to PDF
               </Button>
               <Button variant="outline" className="w-full">
-                📊 Export to CSV
+                <Download className="h-4 w-4" /> Export to CSV
               </Button>
               <Button variant="outline" className="w-full">
-                📈 Generate Custom Report
+                <Calendar className="h-4 w-4" /> Generate Custom Report
               </Button>
             </CardContent>
           </Card>

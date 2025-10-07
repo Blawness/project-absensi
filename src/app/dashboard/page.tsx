@@ -7,6 +7,7 @@ import { RoleSpecificUI, AdminUI, ManagerUI, UserUI } from '@/components/auth/ro
 import { Permission } from '@/lib/rbac';
 import { prisma } from '@/lib/prisma';
 import CheckInCheckOut from '@/components/attendance/checkin-checkout';
+import { Users, TrendingUp, Plus, Eye, FileText, Calendar, BarChart3, Download, RefreshCw, Wrench } from 'lucide-react';
 
 async function getDashboardStats(userId: string, userRole: string, userDepartment?: string) {
   try {
@@ -223,25 +224,49 @@ function AdminDashboard({ stats }: { stats: any }) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card className="glass-deep hover:shadow-glass-lg transition-all duration-300">
           <CardHeader>
-            <CardTitle className="text-white">👥 User Management</CardTitle>
+            <CardTitle className="text-white flex items-center gap-2">
+              <Users className="h-5 w-5" />
+              User Management
+            </CardTitle>
             <CardDescription className="text-gray-400">Manage users and permissions</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Button className="w-full glass-primary hover:shadow-xl">➕ Create New User</Button>
-            <Button variant="glass" className="w-full">📊 View All Users</Button>
-            <Button variant="glass" className="w-full">🔧 Manage Roles</Button>
+            <Button className="w-full glass-primary hover:shadow-xl flex items-center gap-2">
+              <Plus className="h-4 w-4" />
+              Create New User
+            </Button>
+            <Button variant="glass" className="w-full flex items-center gap-2">
+              <Eye className="h-4 w-4" />
+              View All Users
+            </Button>
+            <Button variant="glass" className="w-full flex items-center gap-2">
+              <Wrench className="h-4 w-4" />
+              Manage Roles
+            </Button>
           </CardContent>
         </Card>
 
         <Card className="glass-ocean hover:shadow-glass-lg transition-all duration-300">
           <CardHeader>
-            <CardTitle className="text-white">📈 System Reports</CardTitle>
+            <CardTitle className="text-white flex items-center gap-2">
+              <TrendingUp className="h-5 w-5" />
+              System Reports
+            </CardTitle>
             <CardDescription className="text-gray-400">Generate comprehensive reports</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Button className="w-full glass-primary hover:shadow-xl">📋 Daily Report</Button>
-            <Button variant="glass" className="w-full">📊 Monthly Report</Button>
-            <Button variant="glass" className="w-full">📈 Export Data</Button>
+            <Button className="w-full glass-primary hover:shadow-xl flex items-center gap-2">
+              <FileText className="h-4 w-4" />
+              Daily Report
+            </Button>
+            <Button variant="glass" className="w-full flex items-center gap-2">
+              <BarChart3 className="h-4 w-4" />
+              Monthly Report
+            </Button>
+            <Button variant="glass" className="w-full flex items-center gap-2">
+              <Download className="h-4 w-4" />
+              Export Data
+            </Button>
           </CardContent>
         </Card>
       </div>
@@ -302,19 +327,34 @@ function ManagerDashboard({ stats }: { stats: any }) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card className="glass-deep hover:shadow-glass-lg transition-all duration-300">
           <CardHeader>
-            <CardTitle className="text-white">👥 Team Management</CardTitle>
+            <CardTitle className="text-white flex items-center gap-2">
+              <Users className="h-5 w-5" />
+              Team Management
+            </CardTitle>
             <CardDescription className="text-gray-400">Manage your team members</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Button className="w-full glass-primary hover:shadow-xl">👀 View Team</Button>
-            <Button variant="glass" className="w-full">📋 Team Reports</Button>
-            <Button variant="glass" className="w-full">📊 Export Team Data</Button>
+            <Button className="w-full glass-primary hover:shadow-xl flex items-center gap-2">
+              <Eye className="h-4 w-4" />
+              View Team
+            </Button>
+            <Button variant="glass" className="w-full flex items-center gap-2">
+              <FileText className="h-4 w-4" />
+              Team Reports
+            </Button>
+            <Button variant="glass" className="w-full flex items-center gap-2">
+              <Download className="h-4 w-4" />
+              Export Team Data
+            </Button>
           </CardContent>
         </Card>
 
         <Card className="glass-deep hover:shadow-glass-lg transition-all duration-300">
           <CardHeader>
-            <CardTitle className="text-white">📊 Personal Stats</CardTitle>
+            <CardTitle className="text-white flex items-center gap-2">
+              <BarChart3 className="h-5 w-5" />
+              Personal Stats
+            </CardTitle>
             <CardDescription className="text-gray-400">Your attendance record</CardDescription>
           </CardHeader>
           <CardContent>
@@ -396,7 +436,10 @@ function UserDashboard({ stats }: { stats: any }) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card className="glass-deep hover:shadow-glass-lg transition-all duration-300">
           <CardHeader>
-            <CardTitle className="text-white">📊 My Statistics</CardTitle>
+            <CardTitle className="text-white flex items-center gap-2">
+              <BarChart3 className="h-5 w-5" />
+              My Statistics
+            </CardTitle>
             <CardDescription className="text-gray-400">Your personal attendance record</CardDescription>
           </CardHeader>
           <CardContent>
@@ -423,13 +466,25 @@ function UserDashboard({ stats }: { stats: any }) {
 
         <Card className="glass-deep hover:shadow-glass-lg transition-all duration-300">
           <CardHeader>
-            <CardTitle className="text-white">📋 My Reports</CardTitle>
+            <CardTitle className="text-white flex items-center gap-2">
+              <FileText className="h-5 w-5" />
+              My Reports
+            </CardTitle>
             <CardDescription className="text-gray-400">View your attendance reports</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Button className="w-full glass-primary hover:shadow-xl">📅 Daily Report</Button>
-            <Button variant="glass" className="w-full">📊 Monthly Report</Button>
-            <Button variant="glass" className="w-full">📈 Export My Data</Button>
+            <Button className="w-full glass-primary hover:shadow-xl flex items-center gap-2">
+              <Calendar className="h-4 w-4" />
+              Daily Report
+            </Button>
+            <Button variant="glass" className="w-full flex items-center gap-2">
+              <BarChart3 className="h-4 w-4" />
+              Monthly Report
+            </Button>
+            <Button variant="glass" className="w-full flex items-center gap-2">
+              <Download className="h-4 w-4" />
+              Export My Data
+            </Button>
           </CardContent>
         </Card>
       </div>
