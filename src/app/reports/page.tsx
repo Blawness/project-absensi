@@ -102,7 +102,7 @@ export default async function ReportsPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white">
-            <TrendingUp className="h-6 w-6" /> Reports & Analytics
+            Reports & Analytics
           </h1>
           <p className="text-gray-400 mt-2">
             View attendance reports and analytics

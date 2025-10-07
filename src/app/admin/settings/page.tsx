@@ -51,7 +51,7 @@ export default async function SettingsPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white">
-            <Settings className="h-6 w-6" /> System Settings
+            System Settings
           </h1>
           <p className="text-gray-400 mt-2">
             Configure system settings and preferences

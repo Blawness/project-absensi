@@ -212,7 +212,7 @@ export default async function AttendancePage() {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-foreground">
-            <BarChart3 className="h-6 w-6" /> Attendance Management
+            Attendance Management
           </h1>
           <p className="text-muted-foreground mt-2">
             Check in/out and manage attendance records

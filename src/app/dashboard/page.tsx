@@ -231,15 +231,15 @@ function AdminDashboard({ stats }: { stats: any }) {
             <CardDescription className="text-gray-400">Manage users and permissions</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Button className="w-full glass-primary hover:shadow-xl flex items-center gap-2">
+            <Button className="w-full glass-primary hover:shadow-xl flex items-center justify-start gap-3">
               <Plus className="h-4 w-4" />
               Create New User
             </Button>
-            <Button variant="glass" className="w-full flex items-center gap-2">
+            <Button variant="glass" className="w-full flex items-center justify-start gap-3">
               <Eye className="h-4 w-4" />
               View All Users
             </Button>
-            <Button variant="glass" className="w-full flex items-center gap-2">
+            <Button variant="glass" className="w-full flex items-center justify-start gap-3">
               <Wrench className="h-4 w-4" />
               Manage Roles
             </Button>
@@ -255,15 +255,15 @@ function AdminDashboard({ stats }: { stats: any }) {
             <CardDescription className="text-gray-400">Generate comprehensive reports</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Button className="w-full glass-primary hover:shadow-xl flex items-center gap-2">
+            <Button className="w-full glass-primary hover:shadow-xl flex items-center justify-start gap-3">
               <FileText className="h-4 w-4" />
               Daily Report
             </Button>
-            <Button variant="glass" className="w-full flex items-center gap-2">
+            <Button variant="glass" className="w-full flex items-center justify-start gap-3">
               <BarChart3 className="h-4 w-4" />
               Monthly Report
             </Button>
-            <Button variant="glass" className="w-full flex items-center gap-2">
+            <Button variant="glass" className="w-full flex items-center justify-start gap-3">
               <Download className="h-4 w-4" />
               Export Data
             </Button>
@@ -334,15 +334,15 @@ function ManagerDashboard({ stats }: { stats: any }) {
             <CardDescription className="text-gray-400">Manage your team members</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Button className="w-full glass-primary hover:shadow-xl flex items-center gap-2">
+            <Button className="w-full glass-primary hover:shadow-xl flex items-center justify-start gap-3">
               <Eye className="h-4 w-4" />
               View Team
             </Button>
-            <Button variant="glass" className="w-full flex items-center gap-2">
+            <Button variant="glass" className="w-full flex items-center justify-start gap-3">
               <FileText className="h-4 w-4" />
               Team Reports
             </Button>
-            <Button variant="glass" className="w-full flex items-center gap-2">
+            <Button variant="glass" className="w-full flex items-center justify-start gap-3">
               <Download className="h-4 w-4" />
               Export Team Data
             </Button>
@@ -473,15 +473,15 @@ function UserDashboard({ stats }: { stats: any }) {
             <CardDescription className="text-gray-400">View your attendance reports</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Button className="w-full glass-primary hover:shadow-xl flex items-center gap-2">
+            <Button className="w-full glass-primary hover:shadow-xl flex items-center justify-start gap-3">
               <Calendar className="h-4 w-4" />
               Daily Report
             </Button>
-            <Button variant="glass" className="w-full flex items-center gap-2">
+            <Button variant="glass" className="w-full flex items-center justify-start gap-3">
               <BarChart3 className="h-4 w-4" />
               Monthly Report
             </Button>
-            <Button variant="glass" className="w-full flex items-center gap-2">
+            <Button variant="glass" className="w-full flex items-center justify-start gap-3">
               <Download className="h-4 w-4" />
               Export My Data
             </Button>

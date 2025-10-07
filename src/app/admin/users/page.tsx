@@ -70,7 +70,7 @@ export default async function UsersPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white">
-            <Users className="h-6 w-6" /> User Management
+            User Management
           </h1>
           <p className="text-gray-400 mt-2">
             Manage users and their permissions
